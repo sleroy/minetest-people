@@ -1,7 +1,7 @@
 local S = minetest.get_translator("people")
 
 minetest.register_node("people:bootynode", {
-	description = S"Booty",
+	description = S "Booty",
 	tiles = {
 		"people_bootynode_top.png",
 		"people_bootynode_bottom.png",
@@ -10,7 +10,7 @@ minetest.register_node("people:bootynode", {
 		"people_bootynode_back.png",
 		"people_bootynode_front.png"
 	},
-	groups = {choppy = 2},
+	groups = { choppy = 2 },
 	drop = "mcl_core:gold_ingot 1",
 	sounds = mcl_sounds.node_sound_dirt_defaults(),
 })

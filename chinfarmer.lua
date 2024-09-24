@@ -126,7 +126,7 @@ mobs:register_mob("people:chinfarmer", {
 if not mobs.custom_spawn_people then
 mobs:spawn({
 	name = "people:chinfarmer",
-	nodes = {"default:aspen_wood"},
+	nodes = { "mcl_trees:wood_dark_oak","mcl_trees:wood_acacia" },
 	neighbors = {"people:feeder"},
 	min_light = 0,
 	interval = 30,

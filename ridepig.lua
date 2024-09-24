@@ -13,7 +13,7 @@ end
 
 -- horse shoes (speed, jump, break, overlay texture)
 local shoes = {
-	["people:horseshoe_steel"] = {7, 4, 2, "people_horseshoe_steelo.png"},
+	["people:horseshoe_iron"] = {7, 4, 2, "people_horseshoe_irono.png"},
 	["people:horseshoe_bronze"] = {7, 4, 4, "people_horseshoe_bronzeo.png"},
 	["people:horseshoe_mese"] = {9, 5, 8, "people_horseshoe_meseo.png"},
 	["people:horseshoe_diamond"] = {10, 6, 6, "people_horseshoe_diamondo.png"}
@@ -52,7 +52,7 @@ mobs:register_mob("people:ridepig", {
 	fly = false,
 	walk_chance = 60,
 	view_range = 10,
-follow = {"default:apple", "farming:potato", "ethereal:banana_bread", "farming:melon_slice", "farming:carrot", "farming:seed_rice", "farming:corn", "farming:baked_potato", "farming:sunflower_bread", "farming:pumpkin_bread", "farming:garlic_bread", "farming:tomato_soup", "pie:brpd_0", "farming:bread", "farming:bread_multigrain", "farming:spanish_potatoes", "farming:beetroot_soup", "farming:blueberry_pie", "farming:porridge", "farming:bibimbap", "farming:burger", "farming:paella", "farming:mac_and_cheese", "livingcaves:healingsoup", "farming:spaghetti", "animalworld:escargots", "farming:rhubarb_pie", "farming:potato_omlet", "farming:potato_salad", "farming:corn_cob", "farming:seed_hemp", "farming:seed_barley", "farming:seed_oat", "farming:seed_cotton", "farming:seed_sunflower", "farming:seed_wheat", "farming:seed_rye", "naturalbiomes:coconut", "naturalbiomes:coconut_slice", "naturalbiomes:hazelnut", "naturalbiomes:hazelnut_cracked", "farming:sunflower_seeds_toasted", "livingfloatlands:roasted_pine_nuts", "livingfloatlands:giantforest_oaknut", "livingfloatlands:giantforest_oaknut_cracked", "livingfloatlands:coldsteppe_pine3_pinecone", "livingfloatlands:coldsteppe_pine_pinecone", "livingfloatlands:coldsteppe_pine2_pinecone"},
+follow = {"default:apple", "mcl_farming:potato", "ethereal:banana_bread", "mcl_farming:melon_slice", "mcl_farming:carrot", "mcl_farming:seed_rice", "mcl_farming:corn", "mcl_farming:potato_item", "mcl_farming:carrot_item", "mcl_farming:beetroot_item", "mcl_farming:bread", "mcl_farming:beetroot_soup", "pie:brpd_0", "mcl_farming:bread", "mcl_farming:wheat_seeds", "mcl_farming:cookie", "mcl_farming:beetroot_soup", "mcl_farming:pumpkin_pie", "mcl_farming:porridge", "mcl_farming:bibimbap", "mcl_farming:bread", "mcl_farming:paella", "mcl_farming:mac_and_cheese", "livingcaves:healingsoup", "mcl_farming:melon_item", "animalworld:escargots", "mcl_farming:rhubarb_pie", "mcl_farming:potato_omlet", "mcl_farming:potato_salad", "mcl_farming:corn_cob", "mcl_farming:seed_hemp", "mcl_farming:seed_barley", "mcl_farming:seed_oat", "mcl_farming:seed_cotton", "mcl_farming:seed_sunflower", "mcl_farming:seed_wheat", "mcl_farming:seed_rye", "naturalbiomes:coconut", "naturalbiomes:coconut_slice", "naturalbiomes:hazelnut", "naturalbiomes:hazelnut_cracked", "mcl_farming:sunflower_seeds_toasted", "livingfloatlands:roasted_pine_nuts", "livingfloatlands:giantforest_oaknut", "livingfloatlands:giantforest_oaknut_cracked", "livingfloatlands:coldsteppe_pine3_pinecone", "livingfloatlands:coldsteppe_pine_pinecone", "livingfloatlands:coldsteppe_pine2_pinecone"},
 	passive = true,
 	hp_min = 60,
 	hp_max = 100,
@@ -60,7 +60,7 @@ follow = {"default:apple", "farming:potato", "ethereal:banana_bread", "farming:m
 	lava_damage = 5,
 	fall_damage = 5,
 	water_damage = 1,
-        stay_near = {{"people:feeder", "marinara:reed_bundle", "naturalbiomes:reed_bundle", "farming:straw"}, 5},
+        stay_near = {{"people:feeder", "marinara:reed_bundle", "naturalbiomes:reed_bundle", "mcl_farming:straw"}, 5},
 	makes_footstep_sound = true,
 	sounds = {
 		random = "people_pig",

@@ -48,7 +48,7 @@ mobs:register_mob("people:abominer", {
 	water_damage = 1,
 	lava_damage = 3,
 	light_damage = 0,
-	follow = { "farming:hemp_oil", "farming:hemp_leaf" },
+	follow = { "mcl_armor:helmet_chain", "mcl_torches:torch" },
 	view_range = 15,
 	owner = "",
 	order = "follow",
@@ -82,7 +82,7 @@ mobs:register_mob("people:abominer", {
 		local name = clicker:get_player_name()
 
 		-- right clicking with gold lump drops random item from mobs.npc_drops
-		if item:get_name() == "farming:turkish_delight" or item:get_name() == "farming:donut_apple" or item:get_name() == "farming:porridge" or item:get_name() == "farming:jaffa_cake" or item:get_name() == "farming:apple_pie" or item:get_name() == "farming:spaghetti" or item:get_name() == "farming:burger" or item:get_name() == "farming:bibimbap" or item:get_name() == "farming:baked_potato" or item:get_name() == "farming:sunflower_bread" or item:get_name() == "farming:pumpkin_bread" or item:get_name() == "farming:garlic_bread" or item:get_name() == "farming:tomato_soup" or item:get_name() == "pie:brpd_0" or item:get_name() == "farming:bread" or item:get_name() == "farming:bread_multigrain" or item:get_name() == "farming:spanish_potatoes" or item:get_name() == "farming:beetroot_soup" or item:get_name() == "farming:farming:blueberry_pie" or item:get_name() == "farming:porridge" or item:get_name() == "farming:bibimbap" or item:get_name() == "farming:burger" or item:get_name() == "farming:paella" or item:get_name() == "farming:mac_and_cheese" or item:get_name() == "livingcaves:healingsoup" or item:get_name() == "farming:spaghetti" or item:get_name() == "animalworld:escargots" or item:get_name() == "farming:rhubarb_pie" or item:get_name() == "farming:potato_omlet" or item:get_name() == "farming:potato_salad" then
+		if item:get_name() == "mcl_farming:turkish_delight" or item:get_name() == "mcl_farming:donut_apple" or item:get_name() == "mcl_farming:porridge" or item:get_name() == "mcl_farming:jaffa_cake" or item:get_name() == "mcl_farming:apple_pie" or item:get_name() == "mcl_farming:melon_item" or item:get_name() == "mcl_farming:bread" or item:get_name() == "mcl_farming:bibimbap" or item:get_name() == "mcl_farming:potato_item" or item:get_name() == "mcl_farming:carrot_item" or item:get_name() == "mcl_farming:beetroot_item" or item:get_name() == "mcl_farming:bread" or item:get_name() == "mcl_farming:beetroot_soup" or item:get_name() == "pie:brpd_0" or item:get_name() == "mcl_farming:bread" or item:get_name() == "mcl_farming:wheat_seeds" or item:get_name() == "mcl_farming:cookie" or item:get_name() == "mcl_farming:beetroot_soup" or item:get_name() == "mcl_farming:mcl_farming:pumpkin_pie" or item:get_name() == "mcl_farming:porridge" or item:get_name() == "mcl_farming:bibimbap" or item:get_name() == "mcl_farming:bread" or item:get_name() == "mcl_farming:paella" or item:get_name() == "mcl_farming:mac_and_cheese" or item:get_name() == "livingcaves:healingsoup" or item:get_name() == "mcl_farming:melon_item" or item:get_name() == "animalworld:escargots" or item:get_name() == "mcl_farming:rhubarb_pie" or item:get_name() == "mcl_farming:potato_omlet" or item:get_name() == "mcl_farming:potato_salad" then
 			if not mobs.is_creative(name) then
 				item:take_item()
 				clicker:set_wielded_item(item)
@@ -124,7 +124,34 @@ mobs:register_mob("people:abominer", {
 if not mobs.custom_spawn_people then
 	mobs:spawn({
 		name = "people:abominer",
-		nodes = { "mcl_core:junglewood" },
+		nodes = { "mcl_trees:tree_birch",
+		"mcl_trees:tree_dark_oak",
+		"mcl_trees:tree_acacia",
+		"mcl_trees:tree_jungle",
+		"mcl_trees:tree_spruce",
+		"mcl_trees:tree_oak",
+		"mcl_trees:tree_oak",
+		"mcl_trees:tree_mangrove",
+		"mcl_trees:tree_crimson",
+		"mcl_trees:tree_warped",
+		"mcl_trees:tree_bamboo",
+		"mcl_trees:tree_cherry_blossom",
+
+		"mcl_trees:leaves_birch",
+		"mcl_trees:leaves_dark_oak",
+		"mcl_trees:leaves_acacia",
+		"mcl_trees:leaves_jungle",
+		"mcl_trees:leaves_spruce",
+		"mcl_trees:leaves_oak",
+		"mcl_trees:leaves_oak",
+		"mcl_trees:leaves_mangrove",
+		"mcl_trees:leaves_cherry_blossom",
+
+
+		"mcl_trees:wood_birch",
+		"mcl_trees:wood_dark_oak",
+		"mcl_trees:wood_dark_oak",
+		"mcl_trees:wood_acacia" },
 		neighbors = { "people:mineshaft" },
 		min_light = 0,
 		interval = 30,

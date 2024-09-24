@@ -2,7 +2,8 @@
 local S = minetest.get_translator("people")
 
 mobs.nordoctor_drops = {
-"farming:hemp_leaf", "farming:hemp_oil", "farming:carrot_gold", "people:firsaidkit"
+"mcl_torches:torch", "mcl_armor:helmet_chain", "mcl_farming:carrot_item_gold", "people:firsaidkit", "mcl_potions:glass_bottle", "mcl_potions:water_breathing", "mcl_potions:fire_resistance", "mcl_potions:healing"
+, "mcl_potions:swiftness"
 }
 
 mobs:register_mob("people:nordoctor", {
@@ -45,7 +46,7 @@ mobs:register_mob("people:nordoctor", {
 	water_damage = 1,
 	lava_damage = 3,
 	light_damage = 0,
-	follow = {"farming:mint_tea"},
+	follow = {"mcl_farming:mint_tea"},
 	view_range = 15,
 	owner = "",
 	order = "follow",
@@ -125,7 +126,34 @@ mobs:register_mob("people:nordoctor", {
 if not mobs.custom_spawn_people then
 mobs:spawn({
 	name = "people:nordoctor",
-	nodes = {"mcl_trees:wood_acacia"},
+			nodes = { "mcl_trees:tree_birch",
+		"mcl_trees:tree_dark_oak",
+		"mcl_trees:tree_acacia",
+		"mcl_trees:tree_jungle",
+		"mcl_trees:tree_spruce",
+		"mcl_trees:tree_oak",
+		"mcl_trees:tree_oak",
+		"mcl_trees:tree_mangrove",
+		"mcl_trees:tree_crimson",
+		"mcl_trees:tree_warped",
+		"mcl_trees:tree_bamboo",
+		"mcl_trees:tree_cherry_blossom",
+
+		"mcl_trees:leaves_birch",
+		"mcl_trees:leaves_dark_oak",
+		"mcl_trees:leaves_acacia",
+		"mcl_trees:leaves_jungle",
+		"mcl_trees:leaves_spruce",
+		"mcl_trees:leaves_oak",
+		"mcl_trees:leaves_oak",
+		"mcl_trees:leaves_mangrove",
+		"mcl_trees:leaves_cherry_blossom",
+
+
+		"mcl_trees:wood_birch",
+		"mcl_trees:wood_dark_oak",
+		"mcl_trees:wood_dark_oak",
+		"mcl_trees:wood_acacia" },
 	neighbors = {"people:firstaidnode"},
 	min_light = 0,
 	interval = 30,

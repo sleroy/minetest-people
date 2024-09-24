@@ -5,19 +5,19 @@ mobs:register_mob("people:zombiedoctor", {
 	passive = false,
 	step_height = 2,
 	fear_height = 4,
-        attack_type = "dogfight",
+	attack_type = "dogfight",
 	attack_animals = true,
 	reach = 2,
-        damage = 5,
+	damage = 5,
 	hp_min = 35,
 	hp_max = 75,
 	armor = 100,
-	collisionbox = {-0.5, -0.01, -0.5, 0.5, 1.3, 0.5},
+	collisionbox = { -0.5, -0.01, -0.5, 0.5, 1.3, 0.5 },
 	visual = "mesh",
 	mesh = "Zombie.b3d",
-	visual_size = {x = 1.0, y = 1.0},
+	visual_size = { x = 1.0, y = 1.0 },
 	textures = {
-		{"texturezombie.png"},
+		{ "texturezombie.png" },
 	},
 	sounds = {
 		attack = "people_zombie4",
@@ -29,11 +29,14 @@ mobs:register_mob("people:zombiedoctor", {
 	makes_footstep_sound = true,
 	walk_velocity = 1,
 	run_velocity = 3,
-        walk_chance = 10,
+	walk_chance = 10,
 	runaway = false,
 	jump = true,
-        stay_near = {{"people:firstaidnode"}, 4},
+	stay_near = { { "people:firstaidnode" }, 4 },
 	drops = {
+		"mcl_torches:torch", "mcl_armor:helmet_chain", "mcl_farming:carrot_item_gold", "people:firsaidkit",
+		"mcl_potions:glass_bottle", "mcl_potions:water_breathing", "mcl_potions:fire_resistance", "mcl_potions:healing"
+	, "mcl_potions:swiftness"
 	},
 	water_damage = 0,
 	lava_damage = 4,
@@ -58,7 +61,6 @@ mobs:register_mob("people:zombiedoctor", {
 	view_range = 150,
 
 	on_rightclick = function(self, clicker)
-
 		-- feed or tame
 		if mobs:feed_tame(self, clicker, 4, false, true) then return end
 		if mobs:protect(self, clicker) then return end
@@ -67,18 +69,18 @@ mobs:register_mob("people:zombiedoctor", {
 })
 
 if not mobs.custom_spawn_people then
-mobs:spawn({
-	name = "people:zombiedoctor",
-	nodes = {"default:cobble", "default:mossycobble", "default:sandstonebrick", "default:dirt_with_snow", "default:dry_dirt", "default:dry_dirt_with_dry_grass", "default:permafrost", "default:permafrost", "default:sand", "default:desert_sand", "default:silver_sand", "default:gravel", "default:snowblock", "default:ice", "default:cave:ice", "default:desert_stone", "default:sandstone", "default:silver_sandstone"},
-	neighbors = {"people:doctorgrave"},
-	min_light = 0,
-	interval = 30,
-	active_object_count = 1,
-	chance = 10, -- 15000
-	min_height = -25,
-	max_height = 1000,
-        day_toggle = false
-})
+	mobs:spawn({
+		name = "people:zombiedoctor",
+		nodes = { "default:cobble", "default:mossycobble", "default:sandstonebrick", "default:dirt_with_snow", "default:dry_dirt", "default:dry_dirt_with_dry_grass", "default:permafrost", "default:permafrost", "default:sand", "default:desert_sand", "default:silver_sand", "default:gravel", "default:snowblock", "default:ice", "default:cave:ice", "default:desert_stone", "default:sandstone", "default:silver_sandstone" },
+		neighbors = { "people:doctorgrave" },
+		min_light = 0,
+		interval = 30,
+		active_object_count = 1,
+		chance = 10, -- 15000
+		min_height = -25,
+		max_height = 1000,
+		day_toggle = false
+	})
 end
 
 mobs:register_egg("people:zombiedoctor", S("Zombie"), "azombie.png")

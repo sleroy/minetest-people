@@ -3,17 +3,17 @@ local S = minetest.get_translator("people")
 
 
 mobs.samsmith_drops = {
-"default:axe_steel", "default:axe_steel", "default:axe_steel", 
-"default:axe_steel", "default:axe_mese", "default:axe_mese",
-"default:axe_diamond", "default:axe_diamond", "default:pick_bronze", "default:pick_bronze","default:pick_steel", "default:pick_steel","default:pick_mese", "default:pick_mese", 
-		"default:pick_diamond", "default:pick_diamond", 
-		"default:shovel_bronze", "default:shovel_bronze", 
-		"default:shovel_steel", "default:shovel_steel", 
-		"default:shovel_mese", "default:shovel_mese", 
-		"default:shovel_diamond", "default:shovel_diamond ", 
-"default:sword_bronze", "default:sword_bronze", "default:sword_steel", 
-"default:sword_steel", "default:sword_mese", "default:sword_mese", 
-"default:sword_diamond", "default:sword_diamond"
+"mcl_tools:axe_iron", "mcl_tools:axe_iron", "mcl_tools:axe_iron", 
+"mcl_tools:axe_iron", "mcl_tools:axe_stone", "mcl_tools:axe_stone",
+"mcl_tools:axe_diamond", "mcl_tools:axe_diamond", "mcl_tools:pick_bronze", "mcl_tools:pick_bronze","mcl_tools:pick_iron", "mcl_tools:pick_iron","mcl_tools:pick_wood", "mcl_tools:pick_wood", 
+		"mcl_tools:pick_gold", "mcl_tools:pick_gold", 
+		"mcl_tools:shovel_bronze", "mcl_tools:shovel_bronze", 
+		"mcl_tools:shovel_iron", "mcl_tools:shovel_iron", 
+		"mcl_tools:shovel_silver", "mcl_tools:shovel_silver", 
+		"mcl_tools:shovel_diamond", "mcl_tools:shovel_diamond ", 
+"mcl_tools:sword_bronze", "mcl_tools:sword_bronze", "mcl_tools:sword_iron", 
+"mcl_tools:sword_iron", "mcl_tools:sword_wood", "mcl_tools:sword_wood", 
+"mcl_tools:sword_diamond", "mcl_tools:sword_diamond"
 }
 
 mobs:register_mob("people:samsmith", {
@@ -60,7 +60,7 @@ mobs:register_mob("people:samsmith", {
 	view_range = 15,
 	owner = "",
 	order = "follow",
-	follow = {"farming:baked_potato", "farming:sunflower_bread", "farming:pumpkin_bread", "farming:garlic_bread", "farming:tomato_soup", "pie:brpd_0", "farming:bread", "farming:bread_multigrain", "farming:spanish_potatoes", "farming:beetroot_soup", "farming:blueberry_pie", "farming:porridge", "farming:bibimbap", "farming:burger", "farming:paella", "farming:mac_and_cheese", "livingcaves:healingsoup", "farming:spaghetti", "animalworld:escargots", "farming:rhubarb_pie", "farming:potato_omlet", "farming:potato_salad"},
+	follow = {"mcl_farming:potato_item", "mcl_farming:carrot_item", "mcl_farming:beetroot_item", "mcl_farming:bread", "mcl_farming:beetroot_soup", "pie:brpd_0", "mcl_farming:bread", "mcl_farming:wheat_seeds", "mcl_farming:cookie", "mcl_farming:beetroot_soup", "mcl_farming:pumpkin_pie", "mcl_farming:porridge", "mcl_farming:bibimbap", "mcl_farming:bread", "mcl_farming:paella", "mcl_farming:mac_and_cheese", "livingcaves:healingsoup", "mcl_farming:melon_item", "animalworld:escargots", "mcl_farming:rhubarb_pie", "mcl_farming:potato_omlet", "mcl_farming:potato_salad"},
 	-- model animation
 	animation = {
 		speed_normal = 50,
@@ -137,7 +137,34 @@ mobs:register_mob("people:samsmith", {
 if not mobs.custom_spawn_people then
 mobs:spawn({
 	name = "people:samsmith",
-	nodes = {"mcl_core:junglewood"},
+			nodes = { "mcl_trees:tree_birch",
+		"mcl_trees:tree_dark_oak",
+		"mcl_trees:tree_acacia",
+		"mcl_trees:tree_jungle",
+		"mcl_trees:tree_spruce",
+		"mcl_trees:tree_oak",
+		"mcl_trees:tree_oak",
+		"mcl_trees:tree_mangrove",
+		"mcl_trees:tree_crimson",
+		"mcl_trees:tree_warped",
+		"mcl_trees:tree_bamboo",
+		"mcl_trees:tree_cherry_blossom",
+
+		"mcl_trees:leaves_birch",
+		"mcl_trees:leaves_dark_oak",
+		"mcl_trees:leaves_acacia",
+		"mcl_trees:leaves_jungle",
+		"mcl_trees:leaves_spruce",
+		"mcl_trees:leaves_oak",
+		"mcl_trees:leaves_oak",
+		"mcl_trees:leaves_mangrove",
+		"mcl_trees:leaves_cherry_blossom",
+
+
+		"mcl_trees:wood_birch",
+		"mcl_trees:wood_dark_oak",
+		"mcl_trees:wood_dark_oak",
+		"mcl_trees:wood_acacia" },
 	neighbors = {"people:forge"},
 	min_light = 0,
 	interval = 30,

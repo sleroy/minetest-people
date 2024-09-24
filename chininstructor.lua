@@ -126,7 +126,7 @@ mobs:register_mob("people:chininstructor", {
 if not mobs.custom_spawn_people then
 mobs:spawn({
 	name = "people:chininstructor",
-	nodes = {"default:aspen_wood"},
+	nodes = { "mcl_trees:wood_dark_oak","mcl_trees:wood_acacia" },
 	neighbors = {"people:weaponstand"},
 	min_light = 0,
 	interval = 30,

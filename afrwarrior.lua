@@ -1,4 +1,3 @@
-
 local S = minetest.get_translator("people")
 
 -- Npc by TenPlus1
@@ -22,12 +21,12 @@ mobs:register_mob("people:afrwarrior", {
 	hp_min = 100,
 	hp_max = 145,
 	armor = 80,
-	collisionbox = {-0.35,-1.0,-0.35, 0.35,0.8,0.35},
+	collisionbox = { -0.35, -1.0, -0.35, 0.35, 0.8, 0.35 },
 	visual = "mesh",
 	mesh = "Warrior.b3d",
 	drawtype = "front",
 	textures = {
-		{"textureafrwarrior.png"},
+		{ "textureafrwarrior.png" },
 	},
 	makes_footstep_sound = true,
 	sounds = {
@@ -36,17 +35,30 @@ mobs:register_mob("people:afrwarrior", {
 		damage = "people_male5",
 		death = "people_warrior",
 		distance = 10,
-},
+	},
 	walk_velocity = 3,
 	run_velocity = 4,
 	jump = true,
-        stay_near = {{"people:weaponstand", "people:villagerbed", "mcl_books:bookshelf", "mcl_itemframes:item_frame","mcl_lanterns:lantern", "mcl_lanterns:soul_lantern", "mcl_candles:candle", "mcl:bookcase", "xdecor:tv", "mcl_books:bookshelf", "mcl_boats:chest_boat", "livingcaves:root_lamp", "mcl_chests:chest", "default:mese_post_light_pine_wood", "mcl_nether:glowstone", "default:mese_post_light_pine_wood", "default:mese_post_light", "mcl_trees:wood_acacia", "default:mese_post_light_aspen_wood", "default:mese_post_light_junglewood", "animalworld:crocodilestool", "animalworld:elephantstool", "animalworld:bearstool", "animalworld:gnustool", "animalworld:hippostool", "animalworld:monitorstool", "animalworld:ivorychair", "animalworld:sealstool", "animalworld:yakstool", "animalworld:tigerstool", "animalworld:muskoxstool"}, 5},
-	drops = {		{name = "people:warriorgrave", chance = 1, min = 1, max = 1},
+	stay_near = { { "people:weaponstand", "people:villagerbed",
+		"mcl_books:bookshelf", "mcl_itemframes:item_frame", "mcl_lanterns:lantern", "mcl_lanterns:soul_lantern",
+		"mcl_candles:candle", "mcl:bookcase", "xdecor:tv", "mcl_books:bookshelf", "mcl_boats:chest_boat",
+		"livingcaves:root_lamp", "mcl_chests:chest", "default:mese_post_light_pine_wood", "mcl_nether:glowstone",
+		"default:mese_post_light_pine_wood", "default:mese_post_light", "mcl_trees:wood_acacia",
+		"default:mese_post_light_aspen_wood", "default:mese_post_light_junglewood", "animalworld:crocodilestool",
+		"animalworld:elephantstool", "animalworld:bearstool", "animalworld:gnustool", "animalworld:hippostool",
+		"animalworld:monitorstool", "animalworld:ivorychair", "animalworld:sealstool", "animalworld:yakstool",
+		"animalworld:tigerstool", "animalworld:muskoxstool" }, 5 },
+	drops = { { name = "people:warriorgrave", chance = 1, min = 1, max = 1 },
 	},
 	water_damage = 0,
 	lava_damage = 2,
 	light_damage = 0,
-	follow = {"farming:baked_potato", "farming:sunflower_bread", "farming:pumpkin_bread", "farming:garlic_bread", "farming:tomato_soup", "pie:brpd_0", "farming:bread", "farming:bread_multigrain", "farming:spanish_potatoes", "farming:beetroot_soup", "farming:blueberry_pie", "farming:porridge", "farming:bibimbap", "farming:burger", "farming:paella", "farming:mac_and_cheese", "livingcaves:healingsoup", "farming:spaghetti", "animalworld:escargots", "farming:rhubarb_pie", "farming:potato_omlet", "farming:potato_salad"},
+	follow = { "mcl_farming:potato_item", "mcl_farming:carrot_item",
+		"mcl_farming:beetroot_item", "mcl_farming:bread", "mcl_farming:beetroot_soup", "pie:brpd_0", "mcl_farming:bread",
+		"mcl_farming:wheat_seeds", "mcl_farming:cookie", "mcl_farming:beetroot_soup", "mcl_farming:pumpkin_pie",
+		"mcl_farming:porridge", "mcl_farming:bibimbap", "mcl_farming:bread", "mcl_farming:paella",
+		"mcl_farming:mac_and_cheese", "livingcaves:healingsoup", "mcl_farming:melon_item", "animalworld:escargots",
+		"mcl_farming:rhubarb_pie", "mcl_farming:potato_omlet", "mcl_farming:potato_salad" },
 	view_range = 12,
 	owner = "",
 	order = "stand",
@@ -71,7 +83,6 @@ mobs:register_mob("people:afrwarrior", {
 	},
 
 	on_rightclick = function(self, clicker)
-
 		-- feed to heal npc
 		if mobs:feed_tame(self, clicker, 8, true, true) then return end
 
@@ -88,9 +99,7 @@ mobs:register_mob("people:afrwarrior", {
 
 		-- by right-clicking owner can switch npc between follow and stand
 		if self.owner and self.owner == name then
-
 			if self.order == "follow" then
-
 				self.attack = nil
 				self.order = "stand"
 				self.state = "stand"
@@ -108,10 +117,9 @@ mobs:register_mob("people:afrwarrior", {
 
 
 	do_punch = function(self, hitter,
-					    time_from_last_punch,
+						time_from_last_punch,
 						tool_capabilities,
 						direction)
-
 		-- Prevent friendly fire from killing each other :)
 		local entity = hitter:get_luaentity()
 
@@ -124,32 +132,73 @@ mobs:register_mob("people:afrwarrior", {
 })
 
 
-mobs:register_egg("people:afrwarrior", S("Warrior Acacia"), "aafrwarrior.png" )
+mobs:register_egg("people:afrwarrior", S("Warrior Acacia"), "aafrwarrior.png")
 
 -- compatibility
 mobs:alias_mob("people:afrwarrior", "people:afrwarrior")
 
 mobs:register_arrow("people:spearfly", {
 	visual = "sprite",
-	visual_size = {x=.5, y=.5},
-	textures = {"spearfly.png"},
+	visual_size = { x = .5, y = .5 },
+	textures = { "spearfly.png" },
 	velocity = 8,
 	drop = true,
 
 	hit_player = function(self, player)
 		player:punch(self.object, 1.0, {
-		full_punch_interval=1.0,
-		damage_groups = {fleshy=13},
+			full_punch_interval = 1.0,
+			damage_groups = { fleshy = 13 },
 		}, nil)
 	end,
 
 	hit_mob = function(self, player)
 		player:punch(self.object, 1.0, {
-		full_punch_interval=1.0,
-		damage_groups = {fleshy=13},
+			full_punch_interval = 1.0,
+			damage_groups = { fleshy = 13 },
 		}, nil)
 	end,
 
 	hit_node = function(self, pos, node)
 	end,
 })
+
+
+if not mobs.custom_spawn_people then
+	mobs:spawn({
+		name = "people:afrwarrior",
+		nodes = { "mcl_trees:tree_birch",
+			"mcl_trees:tree_dark_oak",
+			"mcl_trees:tree_acacia",
+			"mcl_trees:tree_jungle",
+			"mcl_trees:tree_spruce",
+			"mcl_trees:tree_oak",
+			"mcl_trees:tree_oak",
+			"mcl_trees:tree_mangrove",
+			"mcl_trees:tree_crimson",
+			"mcl_trees:tree_warped",
+			"mcl_trees:tree_bamboo",
+			"mcl_trees:tree_cherry_blossom",
+
+			"mcl_trees:leaves_birch",
+			"mcl_trees:leaves_dark_oak",
+			"mcl_trees:leaves_acacia",
+			"mcl_trees:leaves_jungle",
+			"mcl_trees:leaves_spruce",
+			"mcl_trees:leaves_oak",
+			"mcl_trees:leaves_oak",
+			"mcl_trees:leaves_mangrove",
+			"mcl_trees:leaves_cherry_blossom",
+
+
+			"mcl_trees:wood_birch",
+			"mcl_trees:wood_dark_oak",
+			"mcl_trees:wood_dark_oak",
+			"mcl_trees:wood_acacia" },
+		neighbors = { "people:weaponstand" },
+		min_light = 0,
+		interval = 30,
+		chance = 1, -- 15000
+		min_height = -25,
+		max_height = 1000,
+	})
+end

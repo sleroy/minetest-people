@@ -3,7 +3,8 @@ local S = mobs.intllib
 
 
 mobs.meddoctor_drops = {
-"farming:hemp_leaf", "farming:hemp_oil", "farming:carrot_gold", "people:firsaidkit"
+"mcl_torches:torch", "mcl_armor:helmet_chain", "mcl_farming:carrot_item_gold", "people:firsaidkit", "mcl_potions:glass_bottle", "mcl_potions:water_breathing", "mcl_potions:fire_resistance", "mcl_potions:healing"
+, "mcl_potions:swiftness"
 }
 
 mobs:register_mob("people:meddoctor", {
@@ -46,7 +47,7 @@ mobs:register_mob("people:meddoctor", {
 	water_damage = 1,
 	lava_damage = 3,
 	light_damage = 0,
-	follow = {"farming:mint_tea"},
+	follow = {"mcl_farming:mint_tea"},
 	view_range = 15,
 	owner = "",
 	order = "follow",
