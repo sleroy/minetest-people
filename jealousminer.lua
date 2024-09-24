@@ -3,19 +3,19 @@ local S = minetest.get_translator("people")
 mobs:register_mob("people:jealousminer", {
 	type = "monster",
 	passive = false,
-        attack_type = "dogfight",
+	attack_type = "dogfight",
 	attack_animals = true,
 	reach = 2,
-        damage = 4,
+	damage = 4,
 	hp_min = 15,
 	hp_max = 25,
 	armor = 100,
-	collisionbox = {-0.35,-1.0,-0.35, 0.35,0.8,0.35},
+	collisionbox = { -0.35, -1.0, -0.35, 0.35, 0.8, 0.35 },
 	visual = "mesh",
 	mesh = "Miner.b3d",
-	visual_size = {x = 1.0, y = 1.0},
+	visual_size = { x = 1.0, y = 1.0 },
 	textures = {
-		{"texturejealousminer.png"},
+		{ "texturejealousminer.png" },
 	},
 	sounds = {
 		attack = "people_evilminer2",
@@ -29,10 +29,10 @@ mobs:register_mob("people:jealousminer", {
 	run_velocity = 3,
 	runaway = false,
 	jump = true,
-        stay_near = {{"mcl_core:stone_with_coal", "mcl_core:stone_with_copper", " mcl_core:stone_with_tin", "mcl_core:stone_with_iron", "mcl_core:stone_with_gold", "mcl_core:stone_with_mese", "mcl_core:stone_with_diamond"}, 5},
+	stay_near = { { "mcl_core:stone_with_coal", "mcl_core:stone_with_copper", " mcl_core:stone_with_tin", "mcl_core:stone_with_iron", "mcl_core:stone_with_gold", "mcl_core:stone_with_mese", "mcl_core:stone_with_diamond" }, 5 },
 	drops = {
-		{name = "mcl_copper:copper_ingot", chance = 1, min = 1, max = 1},
-		{name = "people:emblemoftriumph", chance = 7, min = 1, max = 1},
+		{ name = "mcl_copper:copper_ingot", chance = 1, min = 1, max = 1 },
+		{ name = "people:emblemoftriumph",  chance = 7, min = 1, max = 1 },
 	},
 	water_damage = 5,
 	lava_damage = 4,
@@ -58,7 +58,6 @@ mobs:register_mob("people:jealousminer", {
 	view_range = 15,
 
 	on_rightclick = function(self, clicker)
-
 		-- feed or tame
 		if mobs:feed_tame(self, clicker, 4, false, true) then return end
 		if mobs:protect(self, clicker) then return end
@@ -66,17 +65,17 @@ mobs:register_mob("people:jealousminer", {
 	end,
 })
 
-if not mobs.custom_spawn_people then
+-- if not mobs.custom_spawn_people then
 mobs:spawn({
 	name = "people:jealousminer",
-	nodes = {"mcl_core:stone"},
-	neighbors = {"mcl_core:stone_with_coal", "mcl_core:stone_with_copper"},
+	nodes = { "mcl_core:stone" },
+	neighbors = { "mcl_core:stone_with_coal", "mcl_core:stone_with_copper", "mcl_core:stone", "mcl_core:redandstone" },
 	min_light = 0,
 	interval = 60,
 	chance = 2, -- 15000
 	min_height = -100,
 	max_height = 0,
 })
-end
+--end
 
 mobs:register_egg("people:jealousminer", S("Jealous Miner"), "ajealousminer.png")

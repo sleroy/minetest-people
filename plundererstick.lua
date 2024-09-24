@@ -70,7 +70,7 @@ mobs:register_mob("people:plundererstick", {
 	end,
 })
 
-if not mobs.custom_spawn_people then
+-- if not mobs.custom_spawn_people then
 mobs:spawn({
 	name = "people:plundererstick",
 	nodes = {"mcl_core:cobble", "mcl_core:mossycobble", "mcl_core:sandstonebrick"},
@@ -82,6 +82,6 @@ mobs:spawn({
 	min_height = -25,
 	max_height = 1000,
 })
-end
+
 
 mobs:register_egg("people:plundererstick", S("Plunderer with a Stick"), "aplundererstick.png")

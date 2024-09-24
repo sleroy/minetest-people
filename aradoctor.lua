@@ -133,7 +133,7 @@ mobs:register_mob("people:aradoctor", {
     end
 })
 
--- if not mobs.custom_spawn_people then
+-- -- if not mobs.custom_spawn_people then
 mobs:spawn({
     name = "people:aradoctor",
     nodes = {"mcl_wool:white_carpet", "mcl_wool:brown_carpet", "mcl_wool:silver_carpet", "mcl_wool:silver_carpet",
@@ -148,7 +148,7 @@ mobs:spawn({
     neighbors = {"people:firstaidnode"},
     min_light = 0,
     interval = 30,
-    chance = 1, -- 15000
+    chance = 15000,
     min_height = -25,
     max_height = 1000
 })

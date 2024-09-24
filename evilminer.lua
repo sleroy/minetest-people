@@ -65,7 +65,7 @@ mobs:register_mob("people:evilminer", {
 	end,
 })
 
-if not mobs.custom_spawn_people then
+-- if not mobs.custom_spawn_people then
 	mobs:spawn({
 		name = "people:evilminer",
 		nodes = { "mcl_core:stone" },
@@ -76,6 +76,6 @@ if not mobs.custom_spawn_people then
 		min_height = -1000,
 		max_height = -400,
 	})
-end
+--end
 
 mobs:register_egg("people:evilminer", S("Evil Miner"), "aevilminer.png")

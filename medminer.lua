@@ -125,18 +125,18 @@ sounds = {		random = "people_miner",
 	end,
 })
 
-if not mobs.custom_spawn_people then
+-- if not mobs.custom_spawn_people then
 mobs:spawn({
 	name = "people:medminer",
-	nodes = {"mcl_core:wood"},
+	nodes = {"mcl_core:wood", "mcl_core:stone"},
 	neighbors = {"people:mineshaft"},
 	min_light = 0,
 	interval = 30,
-	chance = 1, -- 15000
+	chance = 15000,
 	min_height = -25,
 	max_height = 1000,
 })
-end
+--end
 -- register spawn egg
 mobs:register_egg("people:medminer", S("Miner Apple"), "amedminer.png")
 

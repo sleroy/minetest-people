@@ -123,18 +123,18 @@ mobs:register_mob("people:chinfarmer", {
 	end,
 })
 
-if not mobs.custom_spawn_people then
+-- if not mobs.custom_spawn_people then
 mobs:spawn({
 	name = "people:chinfarmer",
 	nodes = { "mcl_trees:wood_dark_oak","mcl_trees:wood_acacia" },
 	neighbors = {"people:feeder"},
 	min_light = 0,
 	interval = 30,
-	chance = 1, -- 15000
+	chance = 15000,
 	min_height = -25,
 	max_height = 1000,
 })
-end
+--end
 -- register spawn egg
 mobs:register_egg("people:chinfarmer", S("Farmer Aspen"), "achinfarmer.png")
 

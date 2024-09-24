@@ -55,6 +55,20 @@ mobs:register_mob("people:afrfarmer", {
 	light_damage = 0,
 	follow = { "mcl_core:coal_lump" },
 	view_range = 15,
+	runaway_from = {
+		"mobs_mc:zombie",
+		"mobs_mc:baby_zombie",
+		"mobs_mc:husk",
+		"mobs_mc:baby_husk",
+		"mobs_mc:villager_zombie",
+		"mobs_mc:zombified_piglin",
+		"mobs_mc:zoglin",
+		"mobs_mc:pillager",
+		"mobs_mc:vindicator",
+		"mobs_mc:vex",
+		"mobs_mc:evoker",
+		"mobs_mc:illusioner",
+	},
 	owner = "",
 	order = "follow",
 	-- model animation
@@ -126,36 +140,18 @@ mobs:register_mob("people:afrfarmer", {
 	end,
 })
 
-if not mobs.custom_spawn_people then
-	mobs:spawn({
-		name = "people:afrfarmer",
-		nodes = { "mcl_trees:tree_birch",
-		"mcl_trees:tree_dark_oak",
-		"mcl_trees:tree_acacia",
-		"mcl_trees:tree_jungle",
-		"mcl_trees:tree_spruce",
-		"mcl_trees:tree_oak",
-		"mcl_trees:tree_oak",
-		"mcl_trees:tree_mangrove",
-		"mcl_trees:tree_crimson",
-		"mcl_trees:tree_warped",
-		"mcl_trees:tree_bamboo",
-		"mcl_trees:tree_cherry_blossom",
-"mcl_core:stonebrick",
-		"mcl_trees:wood_birch",
-		"mcl_trees:wood_dark_oak",
-		"mcl_trees:wood_dark_oak",
-		"mcl_trees:wood_acacia" },
-		neighbors = { "people:feeder" },
-		min_light = 0,
-		interval = 30,
-		chance = 1, -- 15000
-		min_height = -25,
-		max_height = 1000,
-	})
-end
+---- if not mobs.custom_spawn_people then
+mobs:spawn({
+	name = "people:afrfarmer",
+	nodes = { "default:desert_sand", "naturalbiomes:outback_litter", "mcl_core:sand", "mcl_core:redsand", "mcl_core:podzol", "mcl_stairs:stairs_spruce_bark" },
+	neighbors = { "mcl_farming:wheat", "mcl_farming:carrot", "mcl_farming:wheat_5", "group:grass", "mcl_core:deadbush", "mcl_core:cactus", "group:normal_grass", "naturalbiomes:outback_grass", "naturalbiomes:outback_grass3", "naturalbiomes:outback_grass2", "naturalbiomes:outback_grass4", "naturalbiomes:outback_grass5", "default:dry_shrub" },
+	min_light = 0,
+	interval = 1,
+	chance = 2500, -- 15000
+	min_height = -10,
+	max_height = 1000,
+	day_toggle = true,
+})
+--end
 -- register spawn egg
 mobs:register_egg("people:afrfarmer", S("Farmer Acacia"), "aafrfarmer.png")
-
--- compatibility
-mobs:alias_mob("people:afrfarmer", "people:afrfarmer")

@@ -90,7 +90,7 @@ mobs:register_mob("people:plunderercrossbow", {
 	end,
 })
 
-if not mobs.custom_spawn_people then
+-- if not mobs.custom_spawn_people then
 mobs:spawn({
 	name = "people:plunderercrossbow",
 	nodes = {"mcl_core:cobble", "mcl_core:mossycobble", "mcl_core:sandstonebrick"},
@@ -102,7 +102,7 @@ mobs:spawn({
 	min_height = -25,
 	max_height = 1000,
 })
-end
+
 
 mobs:register_egg("people:plunderercrossbow", S"Plunderer with Crossbow", "aplunderercrossbow.png")
 

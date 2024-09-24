@@ -7,13 +7,15 @@ local S = minetest.get_translator and minetest.get_translator("people") or
 
 mobs.intllib = S
 
+-- Check for custom mob spawn file
 
+local input = io.open(path .. "spawn.lua", "r")
 
---if input then
-mobs.custom_spawn_people = true
---	input:close()
-	--input = nil
---end
+if input then
+	mobs.custom_spawn_monster = true
+	input:close()
+	input = nil
+end
 
 
 -- Animals
@@ -86,5 +88,11 @@ dofile(path .. "rideox.lua") --
 dofile(path .. "plough.lua") -- 
 
 
+-- Load custom spawning if found
 
-print (S("[MOD] Mobs Redo Animals loaded"))
+if mobs.custom_spawn_monster then
+	dofile(path .. "spawn.lua")
+end
+
+
+print (S("[MOD] Mobs People loaded"))

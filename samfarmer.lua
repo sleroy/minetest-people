@@ -123,34 +123,17 @@ mobs:register_mob("people:samfarmer", {
 	end,
 })
 
-if not mobs.custom_spawn_people then
+-- if not mobs.custom_spawn_people then
 mobs:spawn({
 	name = "people:samfarmer",
-			nodes = { "mcl_trees:tree_birch",
-		"mcl_trees:tree_dark_oak",
-		"mcl_trees:tree_acacia",
-		"mcl_trees:tree_jungle",
-		"mcl_trees:tree_spruce",
-		"mcl_trees:tree_oak",
-		"mcl_trees:tree_oak",
-		"mcl_trees:tree_mangrove",
-		"mcl_trees:tree_crimson",
-		"mcl_trees:tree_warped",
-		"mcl_trees:tree_bamboo",
-		"mcl_trees:tree_cherry_blossom",
-"mcl_core:stonebrick",
-		"mcl_trees:wood_birch",
-		"mcl_trees:wood_dark_oak",
-		"mcl_trees:wood_dark_oak",
-		"mcl_trees:wood_acacia" },
-	neighbors = {"people:feeder"},
-	min_light = 0,
-	interval = 30,
-	chance = 1, -- 15000
-	min_height = -25,
-	max_height = 1000,
+	nodes = {"mcl_farming:pumpkin" , "mobs:meatblock", "mcl_core:cobble"},
+	neighbors = {"mcl_core:stonebrick" , "default:brick"},
+	min_light = 2,
+	chance = 10000,
+	min_height = 0,
+	day_toggle = true
 })
-end
+--end
 -- register spawn egg
 mobs:register_egg("people:samfarmer", S("Farmer Jungle"), "asamfarmer.png")
 

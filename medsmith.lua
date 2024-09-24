@@ -133,18 +133,18 @@ mobs:register_mob("people:medsmith", {
 	end,
 })
 
-if not mobs.custom_spawn_people then
+-- if not mobs.custom_spawn_people then
 mobs:spawn({
 	name = "people:medsmith",
-	nodes = {"mcl_core:wood"},
+	nodes = {"mcl_core:wood", "mcl_core:redandstone"},
 	neighbors = {"people:forge"},
 	min_light = 0,
 	interval = 30,
-	chance = 1, -- 15000
+	chance = 15000,
 	min_height = -25,
 	max_height = 1000,
 })
-end
+--end
 -- register spawn egg
 mobs:register_egg("people:medsmith", S("Blacksmith Apple"), "amedsmith.png")
 

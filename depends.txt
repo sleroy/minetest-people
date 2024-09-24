@@ -1,8 +1,0 @@
-mobs
-mcl_core
-farming?
-ethereal?
-xocean?
-fishing?
-hunger_ng?
-moreores?

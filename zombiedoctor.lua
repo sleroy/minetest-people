@@ -73,23 +73,19 @@ mobs:register_mob("people:zombiedoctor", {
     end
 })
 
-if not mobs.custom_spawn_people then
+-- if not mobs.custom_spawn_people then
     mobs:spawn({
         name = "people:zombiedoctor",
-        nodes = {"mcl_core:cobble", "mcl_core:mossycobble", "mcl_core:sandstonebrick", "mcl_core:dirt_with_snow",
-                 "mcl_core:dry_dirt", "mcl_core:dry_dirt_with_dry_grass", "mcl_core:permafrost", "mcl_core:permafrost",
-                 "mcl_core:sand", "mcl_core:desert_sand", "mcl_core:silver_sand", "mcl_core:gravel", "mcl_core:snowblock",
-                 "mcl_core:ice", "mcl_core:cave:ice", "mcl_core:desert_stone", "mcl_core:sandstone",
-                 "mcl_core:silver_sandstone"},
+        nodes = {"mcl_core:stone"},
         neighbors = {"people:doctorgrave"},
         min_light = 0,
         interval = 30,
-        active_object_count = 1,
+        active_object_count = 2,
         chance = 10, -- 15000
         min_height = -25,
         max_height = 1000,
         day_toggle = false
     })
-end
+
 
 mobs:register_egg("people:zombiedoctor", S("Zombie"), "azombie.png")

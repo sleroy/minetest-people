@@ -68,18 +68,18 @@ mobs:register_mob("people:norvillager", {
 })
 
 
-if not mobs.custom_spawn_people then
+-- if not mobs.custom_spawn_people then
 mobs:spawn({
 	name = "people:norvillager",
 	nodes = {"mcl_core:pine_wood"},
 	neighbors = {"people:villagerbed"},
 	min_light = 0,
 	interval = 30,
-	chance = 1, -- 15000
+	chance = 15000,
 	min_height = -25,
 	max_height = 1000,
 })
-end
+
 
 mobs:register_egg("people:norvillager", S("Villager Pine"), "anorvillager.png")
 
