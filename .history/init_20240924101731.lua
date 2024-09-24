@@ -85,6 +85,11 @@ dofile(path .. "ridereindeer.lua") --
 dofile(path .. "rideox.lua") -- 
 dofile(path .. "plough.lua") -- 
 
+-- Load custom spawning
+if mobs.custom_spawn_people then
+	dofile(path .. "spawn.lua")
+end
+
 
 
 print (S("[MOD] Mobs Redo Animals loaded"))

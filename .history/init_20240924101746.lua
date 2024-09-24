@@ -85,6 +85,8 @@ dofile(path .. "ridereindeer.lua") --
 dofile(path .. "rideox.lua") -- 
 dofile(path .. "plough.lua") -- 
 
+-- Load custom spawning
+
 
 
 print (S("[MOD] Mobs Redo Animals loaded"))
