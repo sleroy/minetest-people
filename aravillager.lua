@@ -43,7 +43,7 @@ mobs:register_mob("people:aravillager", {
 	lava_damage = 5,
 	light_damage = 0,
 	fear_height = 2,
-        stay_near = {{"people:villagerbed", "xdecor:empty_shelf", "xdecor:intemframe", "xdecor:lantern", "xdecor:candle", "xdecor:multishelf", "xdecor:tv", "default:bookshelf", "vessels:shelf", "livingcaves:root_lamp", "default:chest", "default:mese_post_light_pine_wood", "default:meselamp", "default:mese_post_light_pine_wood", "default:mese_post_light", "default:mese_post_light_acacia_wood", "default:mese_post_light_aspen_wood", "default:mese_post_light_junglewood", "animalworld:crocodilestool", "animalworld:elephantstool", "animalworld:bearstool", "animalworld:gnustool", "animalworld:hippostool", "animalworld:monitorstool", "animalworld:ivorychair", "animalworld:sealstool", "animalworld:yakstool", "animalworld:tigerstool", "animalworld:muskoxstool"}, 4},
+	stay_near = {{"people:villagerbed", "mcl_books:bookshelf", "mcl_itemframes:item_frame","mcl_lanterns:lantern", "mcl_lanterns:soul_lantern", "mcl_candles:candle", "mcl:bookcase", "xdecor:tv", "mcl_books:bookshelf", "mcl_boats:chest_boat", "livingcaves:root_lamp", "mcl_chests:chest", "default:mese_post_light_pine_wood", "mcl_nether:glowstone", "default:mese_post_light_pine_wood", "default:mese_post_light", "mcl_trees:wood_acacia", "default:mese_post_light_aspen_wood", "default:mese_post_light_junglewood", "animalworld:crocodilestool", "animalworld:elephantstool", "animalworld:bearstool", "animalworld:gnustool", "animalworld:hippostool", "animalworld:monitorstool", "animalworld:ivorychair", "animalworld:sealstool", "animalworld:yakstool", "animalworld:tigerstool", "animalworld:muskoxstool"}, 4},
 	animation = {
 		speed_normal = 50,
 		stand_start = 0,
@@ -71,7 +71,7 @@ mobs:register_mob("people:aravillager", {
 if not mobs.custom_spawn_people then
 mobs:spawn({
 	name = "people:aravillager",
-	nodes = {"default:acacia_wood"},
+	nodes = {"mcl_trees:wood_acacia"},
 	neighbors = {"people:villagerbed"},
 	min_light = 0,
 	interval = 30,

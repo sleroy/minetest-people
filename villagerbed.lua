@@ -24,7 +24,7 @@ minetest.register_node("people:villagerbed", {
             {-1, -0.5, -0.5, 0.9, 0.5, 0.5}
         }
     },
-    sounds = default.node_sound_wood_defaults()
+    sounds = mcl_sounds.node_sound_wood_defaults()
 })
 
 minetest.register_craft({

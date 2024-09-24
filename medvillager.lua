@@ -35,7 +35,7 @@ mobs:register_mob("people:medvillager", {
 	jump = true,
 	jump_height = 6,
 	pushable = true,
-        stay_near = {{"people:villagerbed", "xdecor:empty_shelf", "xdecor:intemframe", "xdecor:lantern", "xdecor:candle", "xdecor:multishelf", "xdecor:tv", "default:bookshelf", "vessels:shelf", "livingcaves:root_lamp", "default:chest", "default:mese_post_light_pine_wood", "default:meselamp", "default:mese_post_light_pine_wood", "default:mese_post_light", "default:mese_post_light_acacia_wood", "default:mese_post_light_aspen_wood", "default:mese_post_light_junglewood", "animalworld:crocodilestool", "animalworld:elephantstool", "animalworld:bearstool", "animalworld:gnustool", "animalworld:hippostool", "animalworld:monitorstool", "animalworld:ivorychair", "animalworld:sealstool", "animalworld:yakstool", "animalworld:tigerstool", "animalworld:muskoxstool"}, 4},
+        stay_near = {{"people:villagerbed", "mcl_books:bookshelf", "mcl_itemframes:item_frame","mcl_lanterns:lantern", "mcl_lanterns:soul_lantern", "mcl_candles:candle", "mcl:bookcase", "xdecor:tv", "mcl_books:bookshelf", "mcl_boats:chest_boat", "livingcaves:root_lamp", "mcl_chests:chest", "default:mese_post_light_pine_wood", "mcl_nether:glowstone", "default:mese_post_light_pine_wood", "default:mese_post_light", "mcl_trees:wood_acacia", "default:mese_post_light_aspen_wood", "default:mese_post_light_junglewood", "animalworld:crocodilestool", "animalworld:elephantstool", "animalworld:bearstool", "animalworld:gnustool", "animalworld:hippostool", "animalworld:monitorstool", "animalworld:ivorychair", "animalworld:sealstool", "animalworld:yakstool", "animalworld:tigerstool", "animalworld:muskoxstool"}, 4},
 	follow = {"farming:baked_potato", "farming:sunflower_bread", "farming:pumpkin_bread", "farming:garlic_bread", "farming:tomato_soup", "pie:brpd_0", "farming:bread", "farming:bread_multigrain", "farming:spanish_potatoes", "farming:beetroot_soup", "farming:blueberry_pie", "farming:porridge", "farming:bibimbap", "farming:burger", "farming:paella", "farming:mac_and_cheese", "livingcaves:healingsoup", "farming:spaghetti", "animalworld:escargots", "farming:rhubarb_pie", "farming:potato_omlet", "farming:potato_salad"},
 	view_range = 10,
 	drops = {		{name = "people:villagergrave", chance = 1, min = 1, max = 1},
@@ -97,7 +97,7 @@ minetest.register_node("people:villagergrave", {
     groups = {choppy = 3},
     drawtype = "mesh",
 		collisionbox = {-0.4, -0.01, -0.4, 0.4, 0.4, 0.4},
-    sounds = default.node_sound_wood_defaults()
+    sounds = mcl_sounds.node_sound_wood_defaults()
 })
 
 minetest.register_craft({

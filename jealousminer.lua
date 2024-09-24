@@ -31,7 +31,7 @@ mobs:register_mob("people:jealousminer", {
 	jump = true,
         stay_near = {{"default:stone_with_coal", "default:stone_with_copper", " default:stone_with_tin", "default:stone_with_iron", "default:stone_with_gold", "default:stone_with_mese", "default:stone_with_diamond"}, 5},
 	drops = {
-		{name = "default:copper_lump", chance = 1, min = 1, max = 1},
+		{name = "mcl_copper:copper_ingot", chance = 1, min = 1, max = 1},
 		{name = "people:emblemoftriumph", chance = 7, min = 1, max = 1},
 	},
 	water_damage = 5,

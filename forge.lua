@@ -25,7 +25,7 @@ minetest.register_node("people:forge", {
             {-0.3, -0.3, -0.3, 0.3, 0.3, 0.3}
         }
     },
-    sounds = default.node_sound_wood_defaults()
+    sounds = mcl_sounds.node_sound_wood_defaults()
 })
 
 minetest.register_craft({

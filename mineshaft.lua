@@ -24,7 +24,7 @@ minetest.register_node("people:mineshaft", {
             {-1, -0.5, -1, 1, -0.2, 1}
         }
     },
-    sounds = default.node_sound_wood_defaults()
+    sounds = mcl_sounds.node_sound_wood_defaults()
 })
 
 minetest.register_craft({

@@ -11,8 +11,8 @@ minetest.register_node("people:bootynode", {
 		"people_bootynode_front.png"
 	},
 	groups = {choppy = 2},
-	drop = "default:gold_lump 1",
-	sounds = default.node_sound_dirt_defaults(),
+	drop = "mcl_core:gold_ingot 1",
+	sounds = mcl_sounds.node_sound_dirt_defaults(),
 })
 
 minetest.register_craft({

@@ -140,7 +140,7 @@ minetest.register_node("people:dogfoodsack", {
 	},
 	groups = {crumbly = 3},
 	drop = "people:dogfood 9",
-	sounds = default.node_sound_dirt_defaults(),
+	sounds = mcl_sounds.node_sound_dirt_defaults(),
 })
 
 minetest.register_craft({

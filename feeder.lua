@@ -12,7 +12,7 @@ minetest.register_node("people:feeder", {
     groups = {choppy = 3},
     drawtype = "mesh",
 		collisionbox = {-0.4, -0.01, -0.4, 0.4, 2.0, 0.4},
-    sounds = default.node_sound_wood_defaults()
+    sounds = mcl_sounds.node_sound_wood_defaults()
 })
 
 minetest.register_craft({

@@ -40,13 +40,13 @@ mobs:register_mob("people:chinfarmer", {
 	fear_height = 2,
 	jump = true,
         jump_height = 3,
-        stay_near = {{"people:feeder", "people:villagerbed", "xdecor:empty_shelf", "xdecor:intemframe", "xdecor:lantern", "xdecor:candle", "xdecor:multishelf", "xdecor:tv", "default:bookshelf", "vessels:shelf", "livingcaves:root_lamp", "default:chest", "default:mese_post_light_pine_wood", "default:meselamp", "default:mese_post_light_pine_wood", "default:mese_post_light", "default:mese_post_light_acacia_wood", "default:mese_post_light_aspen_wood", "default:mese_post_light_junglewood", "animalworld:crocodilestool", "animalworld:elephantstool", "animalworld:bearstool", "animalworld:gnustool", "animalworld:hippostool", "animalworld:monitorstool", "animalworld:ivorychair", "animalworld:sealstool", "animalworld:yakstool", "animalworld:tigerstool", "animalworld:muskoxstool"}, 4},
+        stay_near = {{"people:feeder", "people:villagerbed", "mcl_books:bookshelf", "mcl_itemframes:item_frame","mcl_lanterns:lantern", "mcl_lanterns:soul_lantern", "mcl_candles:candle", "mcl:bookcase", "xdecor:tv", "mcl_books:bookshelf", "mcl_boats:chest_boat", "livingcaves:root_lamp", "mcl_chests:chest", "default:mese_post_light_pine_wood", "mcl_nether:glowstone", "default:mese_post_light_pine_wood", "default:mese_post_light", "mcl_trees:wood_acacia", "default:mese_post_light_aspen_wood", "default:mese_post_light_junglewood", "animalworld:crocodilestool", "animalworld:elephantstool", "animalworld:bearstool", "animalworld:gnustool", "animalworld:hippostool", "animalworld:monitorstool", "animalworld:ivorychair", "animalworld:sealstool", "animalworld:yakstool", "animalworld:tigerstool", "animalworld:muskoxstool"}, 4},
 	drops = {		{name = "people:farmergrave", chance = 1, min = 1, max = 1},
 	},
 	water_damage = 1,
 	lava_damage = 3,
 	light_damage = 0,
-	follow = {"default:coal_lump"},
+	follow = {"mcl_core:coal_lump"},
 	view_range = 15,
 	owner = "",
 	order = "follow",
@@ -81,7 +81,7 @@ mobs:register_mob("people:chinfarmer", {
 		local name = clicker:get_player_name()
 
 		-- right clicking with gold lump drops random item from mobs.npc_drops
-		if item:get_name() == "default:gold_ingot" then
+		if item:get_name() == "mcl_core:gold_ingot" then
 
 			if not mobs.is_creative(name) then
 				item:take_item()
