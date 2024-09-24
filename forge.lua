@@ -30,6 +30,6 @@ minetest.register_node("people:forge", {
 
 minetest.register_craft({
 	type = "cooking",
-	output = "default:steel_ingot",
+	output = "mcl_core:steel_ingot",
 	recipe = "people:forge",
 })

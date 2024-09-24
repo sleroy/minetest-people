@@ -68,7 +68,7 @@ mobs:register_mob("people:zombieminer", {
 if not mobs.custom_spawn_people then
 mobs:spawn({
 	name = "people:zombieminer",
-	nodes = {"default:cobble", "default:mossycobble", "default:sandstonebrick", "default:dirt_with_snow", "default:dry_dirt", "default:dry_dirt_with_dry_grass", "default:permafrost", "default:permafrost", "default:sand", "default:desert_sand", "default:silver_sand", "default:gravel", "default:snowblock", "default:ice", "default:cave:ice", "default:desert_stone", "default:sandstone", "default:silver_sandstone"},
+	nodes = {"mcl_core:cobble", "mcl_core:mossycobble", "mcl_core:sandstonebrick", "mcl_core:dirt_with_snow", "mcl_core:dry_dirt", "mcl_core:dry_dirt_with_dry_grass", "mcl_core:permafrost", "mcl_core:permafrost", "mcl_core:sand", "mcl_core:desert_sand", "mcl_core:silver_sand", "mcl_core:gravel", "mcl_core:snowblock", "mcl_core:ice", "mcl_core:cave:ice", "mcl_core:desert_stone", "mcl_core:sandstone", "mcl_core:silver_sandstone"},
 	neighbors = {"people:minergrave"},
 	min_light = 0,
 	interval = 30,

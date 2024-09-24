@@ -41,7 +41,7 @@ mobs:register_mob("people:chindoctor", {
 	fear_height = 2,
 	jump = true,
 	jump_height = 3,
-	stay_near = { { "people:firstaidnode", "people:villagerbed", "mcl_books:bookshelf", "mcl_itemframes:item_frame", "mcl_lanterns:lantern", "mcl_lanterns:soul_lantern", "mcl_candles:candle", "mcl:bookcase", "xdecor:tv", "mcl_books:bookshelf", "mcl_boats:chest_boat", "livingcaves:root_lamp", "mcl_chests:chest", "default:mese_post_light_pine_wood", "mcl_nether:glowstone", "default:mese_post_light_pine_wood", "default:mese_post_light", "mcl_trees:wood_acacia", "default:mese_post_light_aspen_wood", "default:mese_post_light_junglewood", "animalworld:crocodilestool", "animalworld:elephantstool", "animalworld:bearstool", "animalworld:gnustool", "animalworld:hippostool", "animalworld:monitorstool", "animalworld:ivorychair", "animalworld:sealstool", "animalworld:yakstool", "animalworld:tigerstool", "animalworld:muskoxstool" }, 4 },
+	stay_near = { { "people:firstaidnode", "people:villagerbed", "mcl_books:bookshelf", "mcl_itemframes:item_frame", "mcl_lanterns:lantern", "mcl_lanterns:soul_lantern", "mcl_candles:candle", "mcl:bookcase", "xdecor:tv", "mcl_books:bookshelf", "mcl_boats:chest_boat", "livingcaves:root_lamp", "mcl_chests:chest", "mcl_core:mese_post_light_pine_wood", "mcl_nether:glowstone", "mcl_core:mese_post_light_pine_wood", "mcl_core:mese_post_light", "mcl_trees:wood_acacia", "mcl_core:mese_post_light_aspen_wood", "mcl_core:mese_post_light_junglewood", "animalworld:crocodilestool", "animalworld:elephantstool", "animalworld:bearstool", "animalworld:gnustool", "animalworld:hippostool", "animalworld:monitorstool", "animalworld:ivorychair", "animalworld:sealstool", "animalworld:yakstool", "animalworld:tigerstool", "animalworld:muskoxstool" }, 4 },
 	drops = { { name = "people:doctorgrave", chance = 1, min = 1, max = 1 },
 	},
 	water_damage = 1,
@@ -120,10 +120,10 @@ mobs:register_mob("people:chindoctor", {
 	end,
 })
 
-if not mobs.custom_spawn_people then
+-- if not mobs.custom_spawn_people then
 	mobs:spawn({
 		name = "people:chindoctor",
-		nodes = { "mcl_trees:wood_dark_oak","mcl_trees:wood_acacia" },
+		nodes = { "mcl_trees:wood_dark_oak","mcl_trees:wood_acacia","mcl_wool:white_carpet","mcl_wool:brown_carpet", "mcl_wool:silver_carpet", "mcl_wool:silver_carpet","mcl_wool:grey_carpet", "mcl_wool:blue_carpet","mcl_wool:green_carpet","mcl_wool:green_carpetmcl_wool:lime_carpet", "mcl_wool:purple_carpet", "mcl_wool:pink_carpet", "mcl_wool:yellow_carpet","mcl_wool:orange_carpet","mcl_wool:red_carpet","mcl_wool:cyan_carpet","mcl_wool:magenta_carpet","mcl_wool:black_carpet", "mcl_wool:light_blue_carpet", },
 		neighbors = { "people:firstaidnode" },
 		min_light = 0,
 		interval = 30,
@@ -131,7 +131,7 @@ if not mobs.custom_spawn_people then
 		min_height = -25,
 		max_height = 1000,
 	})
-end
+-- end
 -- register spawn egg
 mobs:register_egg("people:chindoctor", S("Doctor Aspen"), "achindoctor.png")
 

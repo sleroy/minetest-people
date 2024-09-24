@@ -3,7 +3,7 @@ local S = minetest.get_translator("people")
 
 mobs.abominer_drops = {
 	"mcl_copper:copper_ingot", "moreores:tin_ingot", "mcl_core:iron_ingot",
-	"mcl_core:gold_ingot", "default:diamond", "mcl_copper:copper_ingot",
+	"mcl_core:gold_ingot", "mcl_core:diamond", "mcl_copper:copper_ingot",
 	"mcl_core:iron_ingot", "moreores:tin_ingot", "mcl_copper:copper_ingot", "moreores:tin_ingot", "mcl_core:iron_ingot",
 	"mcl_core:gold_ingot"
 }
@@ -42,7 +42,7 @@ mobs:register_mob("people:abominer", {
 	fear_height = 2,
 	jump = true,
 	jump_height = 3,
-	stay_near = { { "people:mineshaft", "people:villagerbed", "mcl_books:bookshelf", "mcl_itemframes:item_frame", "mcl_lanterns:lantern", "mcl_lanterns:soul_lantern", "mcl_candles:candle", "mcl:bookcase", "xdecor:tv", "mcl_books:bookshelf", "mcl_boats:chest_boat", "livingcaves:root_lamp", "mcl_chests:chest", "default:mese_post_light_pine_wood", "mcl_nether:glowstone", "default:mese_post_light_pine_wood", "default:mese_post_light", "mcl_trees:wood_acacia", "default:mese_post_light_aspen_wood", "default:mese_post_light_junglewood", "animalworld:crocodilestool", "animalworld:elephantstool", "animalworld:bearstool", "animalworld:gnustool", "animalworld:hippostool", "animalworld:monitorstool", "animalworld:ivorychair", "animalworld:sealstool", "animalworld:yakstool", "animalworld:tigerstool", "animalworld:muskoxstool" }, 4 },
+	stay_near = { { "people:mineshaft", "people:villagerbed", "mcl_books:bookshelf", "mcl_itemframes:item_frame", "mcl_lanterns:lantern", "mcl_lanterns:soul_lantern", "mcl_candles:candle", "mcl:bookcase", "xdecor:tv", "mcl_books:bookshelf", "mcl_boats:chest_boat", "livingcaves:root_lamp", "mcl_chests:chest", "mcl_core:mese_post_light_pine_wood", "mcl_nether:glowstone", "mcl_core:mese_post_light_pine_wood", "mcl_core:mese_post_light", "mcl_trees:wood_acacia", "mcl_core:mese_post_light_aspen_wood", "mcl_core:mese_post_light_junglewood", "animalworld:crocodilestool", "animalworld:elephantstool", "animalworld:bearstool", "animalworld:gnustool", "animalworld:hippostool", "animalworld:monitorstool", "animalworld:ivorychair", "animalworld:sealstool", "animalworld:yakstool", "animalworld:tigerstool", "animalworld:muskoxstool" }, 4 },
 	drops = { { name = "people:minergrave", chance = 1, min = 1, max = 1 },
 	},
 	water_damage = 1,
@@ -136,18 +136,7 @@ if not mobs.custom_spawn_people then
 		"mcl_trees:tree_warped",
 		"mcl_trees:tree_bamboo",
 		"mcl_trees:tree_cherry_blossom",
-
-		"mcl_trees:leaves_birch",
-		"mcl_trees:leaves_dark_oak",
-		"mcl_trees:leaves_acacia",
-		"mcl_trees:leaves_jungle",
-		"mcl_trees:leaves_spruce",
-		"mcl_trees:leaves_oak",
-		"mcl_trees:leaves_oak",
-		"mcl_trees:leaves_mangrove",
-		"mcl_trees:leaves_cherry_blossom",
-
-
+"mcl_core:stonebrick",
 		"mcl_trees:wood_birch",
 		"mcl_trees:wood_dark_oak",
 		"mcl_trees:wood_dark_oak",

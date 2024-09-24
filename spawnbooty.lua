@@ -2,7 +2,7 @@ local S = minetest.get_translator("people")
 
 	minetest.register_decoration({
 		deco_type = "simple",
-		place_on = {"default:cobble","default:mossycobble"},
+		place_on = {"mcl_core:cobble","mcl_core:mossycobble"},
 		sidelen = 16,
 		noise_params = {
 			offset = -0,

@@ -31,11 +31,11 @@ mobs:register_mob("people:plough", {
 	replace_rate = 0.01,
 	replace_what = {
 		{"group:grass", "air", 0},
-		{"default:dirt_with_grass", "mcl_farming:soil", -1}
+		{"mcl_core:dirt_with_grass", "mcl_farming:soil", -1}
 	},
 replace_what2 = {
 		{"group:grass", "air", 0},
-		{"default:dirt", "mcl_farming:soil", -1}
+		{"mcl_core:dirt", "mcl_farming:soil", -1}
 	},
 	walk_velocity = 1,
 	walk_chance = 100,
@@ -47,8 +47,8 @@ replace_what2 = {
 	water_damage = 1,
 	lava_damage = 2,
 	light_damage = 0,
-	follow = {"mcl_farming:wheat", "default:apple", "mcl_farming:oat",
-		"mcl_farming:barley", "mcl_farming:corn", "ethereal:banana_single", "mcl_farming:corn_cob", "mcl_farming:cabbage", "default:dry_grass_1", "default:dry_grass_2", "default:dry_grass_3", "default:grass_1", "default:grass_2", "default:grass_3", "default:grass_4", "default:grass_5", "default:marram_grass_1", "default:marram_grass_2", "default:marram_grass_3", "default:coldsteppe_grass_1", "default:coldsteppe_grass_2", "default:coldsteppe_grass_3", "default:coldsteppe_grass_4", "default:coldsteppe_grass_5", "default:coldsteppe_grass_6", "naturalbiomes:savanna_grass1", "naturalbiomes:savanna_grass2", "naturalbiomes:savanna_grass3", "naturalbiomes:outback_grass1", "naturalbiomes:outback_grass2", "naturalbiomes:outback_grass3", "naturalbiomes:outback_grass4", "naturalbiomes:outback_grass5", "naturalbiomes:outback_grass6", "naturalbiomes:med_grass1", "naturalbiomes:med_grass2", "naturalbiomes:heath_grass1", "naturalbiomes:heath_grass2", "naturalbiomes:heath_grass3", "naturalbiomes:alpine_grass1", "naturalbiomes:alpine_grass2", "naturalbiomes:heath_grass2", "naturalbiomes:heath_grass3", "naturalbiomes:", "naturalbiomes:", "naturalbiomes:bushland_grass", "naturalbiomes:bushland_grass2", "naturalbiomes:bushland_grass3", "naturalbiomes:bushland_grass4", "naturalbiomes:bushland_grass5", "naturalbiomes:bushland_grass6", "naturalbiomes:bushland_grass7", "group:grass", "group:normal_grass"},
+	follow = {"mcl_farming:wheat", "mcl_core:apple", "mcl_farming:oat",
+		"mcl_farming:barley", "mcl_farming:corn", "ethereal:banana_single", "mcl_farming:corn_cob", "mcl_farming:cabbage", "mcl_core:dry_grass_1", "mcl_core:dry_grass_2", "mcl_core:dry_grass_3", "mcl_core:grass_1", "mcl_core:grass_2", "mcl_core:grass_3", "mcl_core:grass_4", "mcl_core:grass_5", "mcl_core:marram_grass_1", "mcl_core:marram_grass_2", "mcl_core:marram_grass_3", "mcl_core:coldsteppe_grass_1", "mcl_core:coldsteppe_grass_2", "mcl_core:coldsteppe_grass_3", "mcl_core:coldsteppe_grass_4", "mcl_core:coldsteppe_grass_5", "mcl_core:coldsteppe_grass_6", "naturalbiomes:savanna_grass1", "naturalbiomes:savanna_grass2", "naturalbiomes:savanna_grass3", "naturalbiomes:outback_grass1", "naturalbiomes:outback_grass2", "naturalbiomes:outback_grass3", "naturalbiomes:outback_grass4", "naturalbiomes:outback_grass5", "naturalbiomes:outback_grass6", "naturalbiomes:med_grass1", "naturalbiomes:med_grass2", "naturalbiomes:heath_grass1", "naturalbiomes:heath_grass2", "naturalbiomes:heath_grass3", "naturalbiomes:alpine_grass1", "naturalbiomes:alpine_grass2", "naturalbiomes:heath_grass2", "naturalbiomes:heath_grass3", "naturalbiomes:", "naturalbiomes:", "naturalbiomes:bushland_grass", "naturalbiomes:bushland_grass2", "naturalbiomes:bushland_grass3", "naturalbiomes:bushland_grass4", "naturalbiomes:bushland_grass5", "naturalbiomes:bushland_grass6", "naturalbiomes:bushland_grass7", "group:grass", "group:normal_grass"},
 	view_range = 15,
 	owner = "singleplayer",
 	order = "follow",

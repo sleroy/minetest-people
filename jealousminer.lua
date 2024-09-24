@@ -29,7 +29,7 @@ mobs:register_mob("people:jealousminer", {
 	run_velocity = 3,
 	runaway = false,
 	jump = true,
-        stay_near = {{"default:stone_with_coal", "default:stone_with_copper", " default:stone_with_tin", "default:stone_with_iron", "default:stone_with_gold", "default:stone_with_mese", "default:stone_with_diamond"}, 5},
+        stay_near = {{"mcl_core:stone_with_coal", "mcl_core:stone_with_copper", " mcl_core:stone_with_tin", "mcl_core:stone_with_iron", "mcl_core:stone_with_gold", "mcl_core:stone_with_mese", "mcl_core:stone_with_diamond"}, 5},
 	drops = {
 		{name = "mcl_copper:copper_ingot", chance = 1, min = 1, max = 1},
 		{name = "people:emblemoftriumph", chance = 7, min = 1, max = 1},
@@ -69,8 +69,8 @@ mobs:register_mob("people:jealousminer", {
 if not mobs.custom_spawn_people then
 mobs:spawn({
 	name = "people:jealousminer",
-	nodes = {"default:stone"},
-	neighbors = {"default:stone_with_coal", "default:stone_with_copper"},
+	nodes = {"mcl_core:stone"},
+	neighbors = {"mcl_core:stone_with_coal", "mcl_core:stone_with_copper"},
 	min_light = 0,
 	interval = 60,
 	chance = 2, -- 15000
