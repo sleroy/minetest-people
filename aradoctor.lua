@@ -158,3 +158,19 @@ mobs:register_egg("people:aradoctor", S("Doctor Acacia"), "aaradoctor.png")
 
 -- compatibility
 mobs:alias_mob("people:aradoctor", "people:aradoctor")
+
+mcl_mobs.spawn_setup({
+	name = "people:aradoctor",
+	type_of_spawning = "ground",
+    dimension = "overworld",
+	aoc = 2,
+	min_height = 0,
+	biomes = {
+		"flat",
+		"Plains",
+		"Savanna",
+		"Savanna_beach",
+		"SavannaM",
+	},
+	chance = 100,
+})

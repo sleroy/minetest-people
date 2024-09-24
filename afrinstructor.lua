@@ -159,3 +159,19 @@ mobs:register_egg("people:afrinstructor", S("Instructor Acacia"), "aafrinstructo
 
 -- compatibility
 mobs:alias_mob("people:afrinstructor", "people:afrinstructor")
+mcl_mobs.spawn_setup({
+	name = "people:afrinstructor",
+	type_of_spawning = "ground",
+    dimension = "overworld",
+	aoc = 2,
+	min_height = 0,
+	biomes = {
+		"flat",	
+		"Plains",
+		"Plains_beach",		
+		"Savanna",
+		"Savanna_beach",
+		"SavannaM"		
+	},
+	chance = 100,
+})

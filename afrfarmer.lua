@@ -7,7 +7,7 @@ mobs.afrfarmer_drops = {
 
 mobs:register_mob("people:afrfarmer", {
 	type = "npc",
-	passive = true,
+	passive = false,
 	damage = 5,
 	attack_type = "dogfight",
 	owner_loyal = true,
@@ -143,15 +143,35 @@ mobs:register_mob("people:afrfarmer", {
 ---- if not mobs.custom_spawn_people then
 mobs:spawn({
 	name = "people:afrfarmer",
-	nodes = { "default:desert_sand", "naturalbiomes:outback_litter", "mcl_core:sand", "mcl_core:redsand", "mcl_core:podzol", "mcl_stairs:stairs_spruce_bark" },
-	neighbors = { "mcl_farming:wheat", "mcl_farming:carrot", "mcl_farming:wheat_5", "group:grass", "mcl_core:deadbush", "mcl_core:cactus", "group:normal_grass", "naturalbiomes:outback_grass", "naturalbiomes:outback_grass3", "naturalbiomes:outback_grass2", "naturalbiomes:outback_grass4", "naturalbiomes:outback_grass5", "default:dry_shrub" },
-	min_light = 0,
-	interval = 1,
-	chance = 2500, -- 15000
-	min_height = -10,
-	max_height = 1000,
-	day_toggle = true,
+	nodes = {"default:dirt_with_grass", "ethereal:green_dirt"},
+	neighbors = {"group:grass"},
+	min_light = 14,
+	interval = 60,
+	chance = 8000,
+	min_height = 5,
+	max_height = 200,
+	day_toggle = true
 })
+
+
+mcl_mobs.spawn_setup({
+	name = "people:afrfarmer",
+	type_of_spawning = "ground",
+    dimension = "overworld",
+	aoc = 9,
+	min_height = 0,
+	biomes = {
+		"flat",	
+		"Plains",
+		"Plains_beach",		
+		"Savanna",
+		"Savanna_beach",
+		"SavannaM"		
+	},
+	chance = 100,
+})
+
+
 --end
 -- register spawn egg
 mobs:register_egg("people:afrfarmer", S("Farmer Acacia"), "aafrfarmer.png")

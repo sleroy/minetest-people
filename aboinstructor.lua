@@ -146,7 +146,7 @@ mobs:spawn({
 	neighbors = {"people:weaponstand"},
 	min_light = 0,
 	interval = 30,
-	chance = 15000,
+	chance = 1,
 	min_height = -25,
 	max_height = 1000,
 })
@@ -156,3 +156,21 @@ mobs:register_egg("people:aboinstructor", S("Instructor Jungle"), "aaboinstructo
 
 -- compatibility
 mobs:alias_mob("people:aboinstructor", "people:aboinstructor")
+
+mcl_mobs.spawn_setup({
+	name = "people:aboinstructor",
+	type_of_spawning = "ground",
+    dimension = "overworld",
+	aoc = 2,
+	min_height = 0,
+	biomes = {
+		"flat",	
+		"Plains",
+		"Plains_beach",		
+		"Savanna",
+		"Savanna_beach",
+		"SavannaM"		
+	},
+	chance = 100,
+})
+

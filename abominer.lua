@@ -155,3 +155,19 @@ mobs:register_egg("people:abominer", S("Miner Jungle"), "aabominer.png")
 
 -- compatibility
 mobs:alias_mob("people:abominer", "people:abominer")
+mcl_mobs.spawn_setup({
+	name = "people:abominer",
+	type_of_spawning = "ground",
+    dimension = "overworld",
+	aoc = 9,
+	min_height = 0,
+	biomes = {
+		"flat",	
+		"Plains",
+		"Plains_beach",		
+		"Savanna",
+		"Savanna_beach",
+		"SavannaM"		
+	},
+	chance = 100,
+})
