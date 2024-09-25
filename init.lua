@@ -104,90 +104,349 @@ local beds = { "mcl_beds:bed_red_bottom",
 	"mcl_beds:bed_light_blue_bottom",
 	"mcl_beds:bed_white_bottom" }
 
-function TableConcat(t1, t2)
+local function TableConcat(t1, t2)
 	for i = 1, #t2 do
 		t1[#t1 + 1] = t2[i]
 	end
 	return t1
 end
-
-local farmer_neighbors = { "people:feeder", "mcl_core:cobble", "mcl_farming:soil_wet" }
-
-
--- nordoctor.lua norfarmer.lua norinstructor.lua norminer.lua norsmith.lua norvillager.lua norwarrior.lua
-local nor_people = {
-	{ name = 'nordoctor',     neighbors = { 'mcl_core:snow', 'mcl_core:ice', 'mcl_core:stonebrick', 'mcl_core:snow2', "people:firstaidnode", "mcl_cauldrons:cauldron" } },
-	{ name = 'norinstructor', neighbors = { 'mcl_core:snow', 'mcl_core:ice', 'mcl_core:stonebrick', 'mcl_core:snow2', "people:weaponstand" } },
-	{ name = 'norminer',      neighbors = { 'mcl_core:snow', 'mcl_core:ice', 'mcl_core:stonebrick', 'mcl_core:snow2' } },
-	{
-		name = 'norsmith',
-		neighbors = { 'mcl_core:snow', 'mcl_core:ice', 'mcl_core:stonebrick', 'mcl_core:snow2', "people:forge",
-			"people:villagerbed",
-			"mcl_books:bookshelf", "mcl_itemframes:item_frame", "mcl_lanterns:lantern", "mcl_lanterns:soul_lantern",
-			"mcl_candles:candle", "mcl:bookcase", "xdecor:tv", "mcl_books:bookshelf", "mcl_boats:chest_boat",
-			"livingcaves:root_lamp", "mcl_chests:chest", "mcl_core:mese_post_light_pine_wood", "mcl_nether:glowstone",
-			"mcl_core:mese_post_light_pine_wood", "mcl_core:mese_post_light", "mcl_trees:wood_acacia",
-			"mcl_core:mese_post_light_aspen_wood", "mcl_core:mese_post_light_junglewood", "animalworld:crocodilestool",
-			"animalworld:elephantstool", "animalworld:bearstool", "animalworld:gnustool", "animalworld:hippostool",
-			"animalworld:monitorstool", "animalworld:ivorychair", "animalworld:sealstool", "animalworld:yakstool",
-			"animalworld:tigerstool", "animalworld:muskoxstool" }
-	},
-	{ name = 'norvillager', neighbors = TableConcat({ 'mcl_core:stonebrick', "mcl_core:pine_wood" }, beds) },
-	{ name = 'norwarrior',  neighbors = { 'mcl_core:snow', 'mcl_core:ice', 'mcl_core:stonebrick', 'mcl_core:snow2' } },
-	{ name = 'norfarmer',   neighbors = TableConcat({ 'mcl_core:snow', 'mcl_core:ice', 'mcl_core:stonebrick', 'mcl_core:snow2' }, farmer_neighbors) },
-}
-
-
-for key, villager in ipairs(nor_people)
-do
-	local min_height = 150
-	---- if not mobs.custom_spawn_people then
-	mobs:spawn({
-		name = "people:" .. villager.name,
-		nodes = { "mcl_core:snow", "mcl_core:ice", "mcl_core:snow_2" },
-		neighbors = villager.neighbors,
-		min_light = 1,
-		interval = 60,
-		chance = 500,
-		min_height = min_height,
-		max_height = 2000,
-		day_toggle = true
-	})
-
-	mcl_mobs.spawn_setup({
-		name = "people:" .. villager.name,
-		type_of_spawning = "ground",
-		dimension = "overworld",
-		min_height = min_height,
-		biomes = {
-			"flat",
-			"ExtremeHills",
-			"ExtremeHills_beach",
-			"ExtremeHillsM",
-			"ExtremeHills+",
-			"Savanna",
-			"Savanna_beach",
-			"SavannaM"
-		},
-		chance = 100,
-	})
+local function TableConcat3(t1, t2, t3)
+	return TableConcat(TableConcat(t1, t2), t3)
 end
 
--- Afr rules
-afr_people = {
-	{ name = 'afrfarmer',     neighbors = { 'group:grass', 'mcl_core:dirt_with_grass' } },
-	{ name = 'afrinstructor', neighbors = { 'group:grass', 'mcl_core:stonebrick' } },
-	{ name = 'afrwarrior',    neighbors = { 'group:grass', 'mcl_core:stonebrick' } },
-}
--- , 'afrinstructor', 'afrsmith', 'afrwarrior'
+local farmer_neighbors = { "people:feeder", "mcl_core:cobble", "mcl_farming:soil_wet", "mcl_farming:potato_1",
+	"mcl_farming:potato_2", "mcl_farming:potato_3", "mcl_farming:soil" }
+local doctor_neighbors = { "people:firstaidnode", "mcl_cauldrons:cauldron" }
+local warrior_near = { "people:weaponstand", "people:villagerbed", "mcl_books:bookshelf", "mcl_itemframes:item_frame",
+	"mcl_lanterns:lantern", "mcl_lanterns:soul_lantern", "mcl_candles:candle", "mcl:bookcase", "xdecor:tv",
+	"mcl_books:bookshelf", "mcl_boats:chest_boat", "livingcaves:root_lamp", "mcl_chests:chest",
+	"mcl_core:mese_post_light_pine_wood", "mcl_nether:glowstone" }
+local forge_near = { "people:forge" }
+local miner_near = {}
+local instructor_near = { "people:weaponstand" }
+local villager_near = { 'mcl_core:stonebrick', "mcl_core:pine_wood" }
+local doctor_nodes = { "mcl_wool:white_carpet", "mcl_core:stonebrick", "mcl_wool:brown_carpet",
+	"mcl_wool:silver_carpet", "mcl_wool:silver_carpet",
+	"mcl_wool:grey_carpet", "mcl_wool:blue_carpet", "mcl_wool:green_carpet",
+	"mcl_wool:green_carpetmcl_wool:lime_carpet", "mcl_wool:purple_carpet", "mcl_wool:pink_carpet",
+	"mcl_wool:yellow_carpet", "mcl_wool:orange_carpet", "mcl_wool:red_carpet", "mcl_wool:cyan_carpet",
+	"mcl_wool:magenta_carpet", "mcl_wool:black_carpet", "mcl_wool:light_blue_carpet", "mcl_trees:tree_birch",
+	"mcl_trees:tree_dark_oak", "mcl_trees:tree_acacia", "mcl_trees:tree_jungle", "mcl_trees:tree_spruce",
+	"mcl_trees:tree_oak", "mcl_trees:tree_oak", "mcl_trees:tree_mangrove", "mcl_trees:tree_crimson",
+	"mcl_trees:tree_warped", "mcl_trees:tree_bamboo", "mcl_trees:tree_cherry_blossom",
+	"mcl_trees:wood_birch", "mcl_trees:wood_dark_oak", "mcl_trees:wood_dark_oak", "mcl_trees:wood_acacia" }
+local mine_nodes = { 'mcl_core:stone', 'mcl_core:dirt', 'mcl_core:cobble' }
 
-for key, villager in ipairs(afr_people)
+local all_biomes = {
+	"flat",
+	"MegaTaiga",
+	"MegaSpruceTaiga",
+	"ExtremeHills",
+	"ExtremeHills_beach",
+	"ExtremeHillsM",
+	"ExtremeHills+",
+	"StoneBeach",
+	"Plains",
+	"Plains_beach",
+	"SunflowerPlains",
+	"Taiga",
+	"Taiga_beach",
+	"Forest",
+	"Forest_beach",
+	"FlowerForest",
+	"FlowerForest_beach",
+	"BirchForest",
+	"BirchForestM",
+	"RoofedForest",
+	"Savanna",
+	"Savanna_beach",
+	"SavannaM",
+	"Jungle",
+	"BambooJungle",
+	"Jungle_shore",
+	"JungleM",
+	"JungleM_shore",
+	"JungleEdge",
+	"JungleEdgeM",
+	"Swampland",
+	"Swampland_shore"
+}
+
+local nor_nodes = { 'mcl_core:snow', 'mcl_core:ice', 'mcl_core:stonebrick', 'mcl_core:snow2' }
+local nor_neigh = { 'mcl_core:snow', 'mcl_core:ice', 'mcl_core:stonebrick', 'mcl_core:snow2' }
+local nor_biomes = {
+	"flat",
+	"MegaTaiga",
+	"MegaSpruceTaiga",
+	"ExtremeHills",
+	"ExtremeHills_beach",
+	"ExtremeHillsM",
+	"ExtremeHills+",
+	"Taiga",
+	"Taiga_beach",
+	"Forest",
+	"Forest_beach",
+}
+
+local afr_nodes = { "mcl_core:sand", "mcl_core:sandstone", "mcl_core:sandsmooth", "mcl_core:sandsmooth2",
+	"mcl_core:gravel" }
+local afr_neigh = { "mcl_core:sand", "mcl_core:sandstone", "mcl_core:sandsmooth", "mcl_core:sandsmooth2",
+	"mcl_core:gravel" }
+local afr_biomes = {
+	"flat",
+	"StoneBeach",
+	"Plains_beach",
+	"Savanna",
+	"Savanna_beach",
+	"SavannaM"
+}
+
+
+local ara_nodes = { "mcl_core:sand", "mcl_core:sandstone", "mcl_core:sandsmooth", "mcl_core:sandsmooth2",
+	"mcl_core:gravel" }
+local ara_neigh = { "mcl_core:sand", "mcl_core:sandstone", "mcl_core:sandsmooth", "mcl_core:sandsmooth2",
+	"mcl_core:gravel" }
+local ara_biomes = {
+	"flat",
+	"ExtremeHills",
+	"ExtremeHills_beach",
+	"ExtremeHillsM",
+	"ExtremeHills+",
+	"StoneBeach",
+	"Plains",
+	"Plains_beach",
+	"SunflowerPlains",
+	"Jungle",
+	"BambooJungle",
+	"Jungle_shore",
+	"JungleM",
+	"JungleM_shore",
+	"JungleEdge",
+	"JungleEdgeM",
+	"Swampland",
+	"Swampland_shore"
+}
+
+local chin_nodes = { "mcl_trees:tree_dark_oak", "mcl_trees:tree_acacia", "mcl_trees:tree_jungle", "mcl_trees:tree_spruce",
+	"mcl_trees:tree_oak", "mcl_trees:tree_oak", "mcl_trees:tree_mangrove", "mcl_trees:tree_crimson",
+	"mcl_trees:tree_warped", "mcl_trees:tree_bamboo", "mcl_trees:tree_cherry_blossom", "mcl_core:stonebrick",
+	"mcl_core:cobble",
+	"mcl_trees:wood_birch", "mcl_trees:wood_dark_oak", "mcl_trees:wood_dark_oak", "mcl_trees:wood_acacia" }
+local chin_neigh = { "mcl_trees:tree_dark_oak", "mcl_trees:tree_acacia", "mcl_trees:tree_jungle", "mcl_trees:tree_spruce",
+	"mcl_trees:tree_oak", "mcl_trees:tree_oak", "mcl_trees:tree_mangrove", "mcl_trees:tree_crimson",
+	"mcl_trees:tree_warped", "mcl_trees:tree_bamboo", "mcl_trees:tree_cherry_blossom", "mcl_core:stonebrick",
+	"mcl_core:cobble",
+	"mcl_trees:wood_birch", "mcl_trees:wood_dark_oak", "mcl_trees:wood_dark_oak", "mcl_trees:wood_acacia" }
+local chin_biomes = {
+	"flat",
+	"Forest",
+	"Forest_beach",
+	"FlowerForest",
+	"FlowerForest_beach",
+	"BirchForest",
+	"BirchForestM",
+	"RoofedForest",
+	"Jungle",
+	"BambooJungle",
+	"Jungle_shore",
+	"JungleM",
+	"JungleM_shore",
+	"JungleEdge",
+	"JungleEdgeM",
+	"Swampland",
+	"Swampland_shore"
+}
+
+
+local ewe_nodes = { "mcl_trees:tree_dark_oak", "mcl_trees:tree_acacia", "mcl_trees:tree_jungle", "mcl_trees:tree_spruce",
+	"mcl_trees:tree_oak", "mcl_trees:tree_oak", "mcl_trees:tree_mangrove", "mcl_trees:tree_crimson",
+	"mcl_trees:tree_warped", "mcl_trees:tree_bamboo", "mcl_trees:tree_cherry_blossom", "mcl_core:stonebrick",
+	"mcl_core:cobble",
+	"mcl_trees:wood_birch", "mcl_trees:wood_dark_oak", "mcl_trees:wood_dark_oak", "mcl_trees:wood_acacia" }
+local ewe_neigh = { "mcl_trees:tree_dark_oak", "mcl_trees:tree_acacia", "mcl_trees:tree_jungle", "mcl_trees:tree_spruce",
+	"mcl_trees:tree_oak", "mcl_trees:tree_oak", "mcl_trees:tree_mangrove", "mcl_trees:tree_crimson",
+	"mcl_trees:tree_warped", "mcl_trees:tree_bamboo", "mcl_trees:tree_cherry_blossom", "mcl_core:stonebrick",
+	"mcl_core:cobble",
+	"mcl_trees:wood_birch", "mcl_trees:wood_dark_oak", "mcl_trees:wood_dark_oak", "mcl_trees:wood_acacia" }
+local ewe_biomes = {
+	"flat",
+	"Forest",
+	"Forest_beach",
+	"FlowerForest",
+	"FlowerForest_beach",
+	"BirchForest",
+	"BirchForestM",
+	"RoofedForest"
+}
+
+
+local med_nodes = { "mcl_trees:tree_dark_oak", "mcl_trees:tree_acacia", "mcl_trees:tree_jungle", "mcl_trees:tree_spruce",
+	"mcl_trees:tree_oak", "mcl_trees:tree_oak", "mcl_trees:tree_mangrove", "mcl_trees:tree_crimson",
+	"mcl_trees:tree_warped", "mcl_trees:tree_bamboo", "mcl_trees:tree_cherry_blossom", "mcl_core:stonebrick",
+	"mcl_core:cobble",
+	"mcl_trees:wood_birch", "mcl_trees:wood_dark_oak", "mcl_trees:wood_dark_oak", "mcl_trees:wood_acacia" }
+local med_neigh = { "mcl_trees:tree_dark_oak", "mcl_trees:tree_acacia", "mcl_trees:tree_jungle", "mcl_trees:tree_spruce",
+	"mcl_trees:tree_oak", "mcl_trees:tree_oak", "mcl_trees:tree_mangrove", "mcl_trees:tree_crimson",
+	"mcl_trees:tree_warped", "mcl_trees:tree_bamboo", "mcl_trees:tree_cherry_blossom", "mcl_core:stonebrick",
+	"mcl_core:cobble",
+	"mcl_trees:wood_birch", "mcl_trees:wood_dark_oak", "mcl_trees:wood_dark_oak", "mcl_trees:wood_acacia" }
+local med_biomes = {
+	"flat",
+	"Plains",
+	"Plains_beach",
+	"SunflowerPlains",
+	"Swampland",
+	"Swampland_shore"
+}
+
+local pap_nodes = { "mcl_trees:tree_dark_oak", "mcl_trees:tree_acacia", "mcl_trees:tree_jungle", "mcl_trees:tree_spruce",
+	"mcl_trees:tree_oak", "mcl_trees:tree_oak", "mcl_trees:tree_mangrove", "mcl_trees:tree_crimson",
+	"mcl_trees:tree_warped", "mcl_trees:tree_bamboo", "mcl_trees:tree_cherry_blossom", "mcl_core:stonebrick",
+	"mcl_core:cobble",
+	"mcl_trees:wood_birch", "mcl_trees:wood_dark_oak", "mcl_trees:wood_dark_oak", "mcl_trees:wood_acacia" }
+local pap_neigh = { "mcl_trees:tree_dark_oak", "mcl_trees:tree_acacia", "mcl_trees:tree_jungle", "mcl_trees:tree_spruce",
+	"mcl_trees:tree_oak", "mcl_trees:tree_oak", "mcl_trees:tree_mangrove", "mcl_trees:tree_crimson",
+	"mcl_trees:tree_warped", "mcl_trees:tree_bamboo", "mcl_trees:tree_cherry_blossom", "mcl_core:stonebrick",
+	"mcl_core:cobble",
+	"mcl_trees:wood_birch", "mcl_trees:wood_dark_oak", "mcl_trees:wood_dark_oak", "mcl_trees:wood_acacia" }
+local pap_biomes = {
+	"flat",
+	"MegaTaiga",
+	"MegaSpruceTaiga",
+	"ExtremeHills",
+	"Taiga",
+	"Forest",
+	"FlowerForest",
+	"BirchForest",
+	"BirchForestM",
+	"RoofedForest",
+	"Jungle",
+	"BambooJungle",
+	"Jungle_shore",
+	"JungleM",
+	"JungleM_shore",
+	"JungleEdge",
+	"JungleEdgeM",
+	"Swampland",
+	"Swampland_shore"
+}
+
+
+local sam_nodes = { "mcl_core:dirt_with_grass", "ethereal:green_dirt", "mcl_core:stonebrick", "mcl_core:cobble",
+	"mcl_core:wood" }
+local sam_neigh = { "mcl_core:dirt_with_grass", "ethereal:green_dirt", "mcl_core:stonebrick", "mcl_core:cobble",
+	"mcl_core:wood" }
+local sam_biomes = {
+	"flat",
+	"MegaTaiga",
+	"MegaSpruceTaiga",
+	"ExtremeHills",
+	"Taiga",
+	"Forest",
+	"FlowerForest",
+	"BirchForest",
+	"BirchForestM",
+	"RoofedForest",
+	"Jungle",
+	"BambooJungle",
+	"Jungle_shore",
+	"JungleM",
+	"JungleM_shore",
+	"JungleEdge",
+	"JungleEdgeM",
+	"Swampland",
+	"Swampland_shore"
+}
+
+
+local all_people = {
+	{ name = 'nordoctor',      nodes = TableConcat(nor_nodes, doctor_nodes),  neighbors = TableConcat(nor_neigh, doctor_neighbors),     biomes = nor_biomes },
+	{ name = 'norfarmer',      nodes = nor_nodes,                             neighbors = TableConcat(nor_neigh, farmer_neighbors),     biomes = nor_biomes },
+	{ name = 'norinstructor',  nodes = nor_nodes,                             neighbors = TableConcat(nor_neigh, instructor_near),      biomes = nor_biomes },
+	{ name = 'norminer',       nodes = nor_nodes,                             neighbors = TableConcat(nor_neigh, miner_near),           biomes = nor_biomes },
+	{ name = 'norsmith',       nodes = nor_nodes,                             neighbors = TableConcat(nor_neigh, forge_near),           biomes = nor_biomes },
+	{ name = 'norvillager',    nodes = nor_nodes,                             neighbors = TableConcat3(nor_neigh, beds, villager_near), biomes = nor_biomes },
+	{ name = 'norwarrior',     nodes = nor_nodes,                             neighbors = TableConcat(nor_neigh, warrior_near),         biomes = nor_biomes },
+
+	{ name = 'afrfarmer',      nodes = afr_nodes,                             neighbors = TableConcat(afr_neigh, farmer_neighbors),     biomes = afr_biomes },
+	{ name = 'afrinstructor',  nodes = afr_nodes,                             neighbors = TableConcat(afr_neigh, instructor_near),      biomes = afr_biomes },
+	{ name = 'afrsmith',       nodes = afr_nodes,                             neighbors = TableConcat(afr_neigh, forge_near),           biomes = afr_biomes },
+	{ name = 'afrwarrior',     nodes = afr_nodes,                             neighbors = TableConcat(afr_neigh, warrior_near),         biomes = afr_biomes },
+
+	{ name = 'aradoctor',      nodes = TableConcat(ara_nodes, doctor_nodes),  neighbors = TableConcat(ara_neigh, doctor_neighbors),     biomes = ara_biomes },
+	{ name = 'araminer',       nodes = ara_nodes,                             neighbors = TableConcat(ara_neigh, miner_near),           biomes = ara_biomes },
+	{ name = 'aravillager',    nodes = ara_nodes,                             neighbors = TableConcat3(ara_neigh, beds, villager_near), biomes = ara_biomes },
+
+	{ name = 'chindoctor',     nodes = TableConcat(chin_nodes, doctor_nodes), neighbors = TableConcat(chin_neigh, doctor_neighbors),    biomes = chin_biomes },
+	{ name = 'chinfarmer',     nodes = chin_nodes,                            neighbors = TableConcat(chin_neigh, farmer_neighbors),    biomes = chin_biomes },
+	{ name = 'chininstructor', nodes = chin_nodes,                            neighbors = TableConcat(chin_neigh, instructor_near),     biomes = chin_biomes },
+	{ name = 'chinsmith',      nodes = chin_nodes,                            neighbors = TableConcat(chin_neigh, forge_near),          biomes = chin_biomes },
+
+	{ name = 'evilminer',      nodes = mine_nodes,                            neighbors = TableConcat(mine_nodes, miner_near),          biomes = all_biomes },
+	{ name = 'hatefulminer',   nodes = mine_nodes,                            neighbors = TableConcat(mine_nodes, miner_near),          biomes = all_biomes },
+	{ name = 'jealousminer',   nodes = mine_nodes,                            neighbors = TableConcat(mine_nodes, miner_near),          biomes = all_biomes },
+
+	{ name = 'eweminer',       nodes = ewe_nodes,                             neighbors = TableConcat(ewe_nodes, miner_near),           biomes = ewe_biomes },
+	{ name = 'ewevillager',    nodes = ewe_nodes,                             neighbors = TableConcat3(ewe_neigh, beds, villager_near), biomes = ewe_biomes },
+	{ name = 'ewewarrior',     nodes = ewe_nodes,                             neighbors = TableConcat(ewe_neigh, warrior_near),         biomes = ewe_biomes },
+
+	{ name = 'meddoctor',      nodes = TableConcat(med_nodes, doctor_nodes),  neighbors = TableConcat(med_neigh, doctor_neighbors),     biomes = med_biomes },
+	{ name = 'medfarmer',      nodes = med_nodes,                             neighbors = TableConcat(med_neigh, farmer_neighbors),     biomes = med_biomes },
+	{ name = 'medinstructor',  nodes = med_nodes,                             neighbors = TableConcat(med_neigh, instructor_near),      biomes = med_biomes },
+	{ name = 'medminer',       nodes = med_nodes,                             neighbors = TableConcat(med_neigh, miner_near),           biomes = med_biomes },
+	{ name = 'medsmith',       nodes = med_nodes,                             neighbors = TableConcat(med_neigh, forge_near),           biomes = med_biomes },
+	{ name = 'medvillager',    nodes = med_nodes,                             neighbors = TableConcat3(med_neigh, beds, villager_near), biomes = med_biomes },
+	{ name = 'medwarrior',     nodes = med_nodes,                             neighbors = TableConcat(med_neigh, warrior_near),         biomes = med_biomes },
+
+	{ name = 'papdoctor',      nodes = TableConcat(pap_nodes, doctor_nodes),  neighbors = TableConcat(pap_neigh, doctor_neighbors),     biomes = pap_biomes },
+	{ name = 'papvillager',    nodes = pap_nodes,                             neighbors = TableConcat3(pap_neigh, beds, villager_near), biomes = pap_biomes },
+
+	{ name = 'samfarmer',      nodes = sam_nodes,                             neighbors = TableConcat(sam_neigh, farmer_neighbors),     biomes = sam_biomes },
+	{ name = 'samsmith',       nodes = sam_nodes,                             neighbors = TableConcat(sam_neigh, forge_near),           biomes = sam_biomes },
+	{ name = 'samwarrior',     nodes = sam_nodes,                             neighbors = TableConcat(sam_neigh, warrior_near),         biomes = sam_biomes },
+
+	{
+		name = 'pirate',
+		nodes = {
+			"ExtremeHills_beach",
+			"StoneBeach",
+			"Plains_beach",
+			"Taiga_beach",
+			"Forest_beach",
+			"FlowerForest_beach",
+			"Savanna_beach",
+			"Jungle_shore",
+			"JungleM_shore", },
+		neighbors = villager_near,
+		biomes = pap_biomes
+	},
+	{
+		name = 'plough',
+		nodes = {
+			"ExtremeHills_beach",
+			"StoneBeach",
+			"Plains_beach",
+			"Taiga_beach",
+			"Forest_beach",
+			"FlowerForest_beach",
+			"Savanna_beach",
+			"Jungle_shore",
+			"JungleM_shore", },
+		neighbors = villager_near,
+		biomes = pap_biomes
+	},
+}
+
+-- pirate, plough,
+
+
+for key, villager in ipairs(all_people)
 do
 	local min_height = 150
 	---- if not mobs.custom_spawn_people then
 	mobs:spawn({
 		name = "people:" .. villager.name,
-		nodes = { "mcl_core:dirt_with_grass", "ethereal:green_dirt", "mcl_core:stonebrick", "mcl_core:cobble", "mcl_farming:soil_wet", "mcl_core:dirt", "mcl_core:sand" },
+		nodes = villager.nodes,
 		neighbors = villager.neighbors,
 		min_light = 1,
 		interval = 60,
@@ -202,17 +461,8 @@ do
 		type_of_spawning = "ground",
 		dimension = "overworld",
 		min_height = min_height,
-		biomes = {
-			"flat",
-			"ExtremeHills",
-			"ExtremeHills_beach",
-			"ExtremeHillsM",
-			"ExtremeHills+",
-			"Savanna",
-			"Savanna_beach",
-			"SavannaM"
-		},
-		chance = 100,
+		biomes = villager.biomes,
+		chance = 1500,
 	})
 end
 
@@ -227,40 +477,7 @@ do
 		type_of_spawning = "ground",
 		dimension = "overworld",
 		min_height = -1000,
-		biomes = {
-			"flat",
-			"MegaTaiga",
-			"MegaSpruceTaiga",
-			"ExtremeHills",
-			"ExtremeHills_beach",
-			"ExtremeHillsM",
-			"ExtremeHills+",
-			"StoneBeach",
-			"Plains",
-			"Plains_beach",
-			"SunflowerPlains",
-			"Taiga",
-			"Taiga_beach",
-			"Forest",
-			"Forest_beach",
-			"FlowerForest",
-			"FlowerForest_beach",
-			"BirchForest",
-			"BirchForestM",
-			"RoofedForest",
-			"Savanna",
-			"Savanna_beach",
-			"SavannaM",
-			"Jungle",
-			"BambooJungle",
-			"Jungle_shore",
-			"JungleM",
-			"JungleM_shore",
-			"JungleEdge",
-			"JungleEdgeM",
-			"Swampland",
-			"Swampland_shore"
-		},
+		biomes = all_biomes,
 		chance = 100,
 	})
 	mcl_mobs.spawn_setup({

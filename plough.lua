@@ -4,7 +4,7 @@ mobs:register_mob("people:plough", {
 	type = "npc",
 	passive = true,
 	damage = 3,
-        reach = 2,
+	reach = 2,
 	group_attack = false,
 	attack_type = "dogfight",
 	attacks_monsters = true,
@@ -14,12 +14,12 @@ mobs:register_mob("people:plough", {
 	hp_min = 80,
 	hp_max = 120,
 	armor = 100,
-	collisionbox = {-1.0,-0.1,-1.0, 1.0,1.0,1.0},
+	collisionbox = { -1.0, -0.1, -1.0, 1.0, 1.0, 1.0 },
 	visual = "mesh",
 	mesh = "Plough.b3d",
 	drawtype = "front",
 	textures = {
-		{"textureplough.png"},
+		{ "textureplough.png" },
 	},
 	makes_footstep_sound = true,
 	sounds = {
@@ -30,12 +30,12 @@ mobs:register_mob("people:plough", {
 	},
 	replace_rate = 0.01,
 	replace_what = {
-		{"group:grass", "air", 0},
-		{"mcl_core:dirt_with_grass", "mcl_farming:soil", -1}
+		{ "group:grass",              "air",              0 },
+		{ "mcl_core:dirt_with_grass", "mcl_farming:soil", -1 }
 	},
-replace_what2 = {
-		{"group:grass", "air", 0},
-		{"mcl_core:dirt", "mcl_farming:soil", -1}
+	replace_what2 = {
+		{ "group:grass",   "air",              0 },
+		{ "mcl_core:dirt", "mcl_farming:soil", -1 }
 	},
 	walk_velocity = 1,
 	walk_chance = 100,
@@ -47,8 +47,22 @@ replace_what2 = {
 	water_damage = 1,
 	lava_damage = 2,
 	light_damage = 0,
-	follow = {"mcl_farming:wheat", "mcl_core:apple", "mcl_farming:oat",
-		"mcl_farming:barley", "mcl_farming:corn", "ethereal:banana_single", "mcl_farming:corn_cob", "mcl_farming:cabbage", "mcl_core:dry_grass_1", "mcl_core:dry_grass_2", "mcl_core:dry_grass_3", "mcl_core:grass_1", "mcl_core:grass_2", "mcl_core:grass_3", "mcl_core:grass_4", "mcl_core:grass_5", "mcl_core:marram_grass_1", "mcl_core:marram_grass_2", "mcl_core:marram_grass_3", "mcl_core:coldsteppe_grass_1", "mcl_core:coldsteppe_grass_2", "mcl_core:coldsteppe_grass_3", "mcl_core:coldsteppe_grass_4", "mcl_core:coldsteppe_grass_5", "mcl_core:coldsteppe_grass_6", "naturalbiomes:savanna_grass1", "naturalbiomes:savanna_grass2", "naturalbiomes:savanna_grass3", "naturalbiomes:outback_grass1", "naturalbiomes:outback_grass2", "naturalbiomes:outback_grass3", "naturalbiomes:outback_grass4", "naturalbiomes:outback_grass5", "naturalbiomes:outback_grass6", "naturalbiomes:med_grass1", "naturalbiomes:med_grass2", "naturalbiomes:heath_grass1", "naturalbiomes:heath_grass2", "naturalbiomes:heath_grass3", "naturalbiomes:alpine_grass1", "naturalbiomes:alpine_grass2", "naturalbiomes:heath_grass2", "naturalbiomes:heath_grass3", "naturalbiomes:", "naturalbiomes:", "naturalbiomes:bushland_grass", "naturalbiomes:bushland_grass2", "naturalbiomes:bushland_grass3", "naturalbiomes:bushland_grass4", "naturalbiomes:bushland_grass5", "naturalbiomes:bushland_grass6", "naturalbiomes:bushland_grass7", "group:grass", "group:normal_grass"},
+	follow = { "mcl_farming:wheat", "mcl_core:apple", "mcl_farming:oat",
+		"mcl_farming:barley", "mcl_farming:corn", "ethereal:banana_single", "mcl_farming:corn_cob", "mcl_farming:cabbage",
+		"mcl_core:dry_grass_1", "mcl_core:dry_grass_2", "mcl_core:dry_grass_3", "mcl_core:grass_1", "mcl_core:grass_2",
+		"mcl_core:grass_3", "mcl_core:grass_4", "mcl_core:grass_5", "mcl_core:marram_grass_1", "mcl_core:marram_grass_2",
+		"mcl_core:marram_grass_3", "mcl_core:coldsteppe_grass_1", "mcl_core:coldsteppe_grass_2",
+		"mcl_core:coldsteppe_grass_3", "mcl_core:coldsteppe_grass_4", "mcl_core:coldsteppe_grass_5",
+		"mcl_core:coldsteppe_grass_6", "naturalbiomes:savanna_grass1", "naturalbiomes:savanna_grass2",
+		"naturalbiomes:savanna_grass3", "naturalbiomes:outback_grass1", "naturalbiomes:outback_grass2",
+		"naturalbiomes:outback_grass3", "naturalbiomes:outback_grass4", "naturalbiomes:outback_grass5",
+		"naturalbiomes:outback_grass6", "naturalbiomes:med_grass1", "naturalbiomes:med_grass2",
+		"naturalbiomes:heath_grass1", "naturalbiomes:heath_grass2", "naturalbiomes:heath_grass3",
+		"naturalbiomes:alpine_grass1", "naturalbiomes:alpine_grass2", "naturalbiomes:heath_grass2",
+		"naturalbiomes:heath_grass3", "naturalbiomes:", "naturalbiomes:", "naturalbiomes:bushland_grass",
+		"naturalbiomes:bushland_grass2", "naturalbiomes:bushland_grass3", "naturalbiomes:bushland_grass4",
+		"naturalbiomes:bushland_grass5", "naturalbiomes:bushland_grass6", "naturalbiomes:bushland_grass7", "group:grass",
+		"group:normal_grass" },
 	view_range = 15,
 	owner = "singleplayer",
 	order = "follow",
@@ -62,7 +76,7 @@ replace_what2 = {
 		stand1_end = 200,
 		stand2_start = 200,
 		stand2_end = 300,
-                walk_speed = 50,
+		walk_speed = 50,
 		walk_start = 300,
 		walk_end = 400,
 		die_start = 200,
@@ -72,8 +86,7 @@ replace_what2 = {
 		die_rotate = true,
 	},
 
-on_rightclick = function(self, clicker)
-
+	on_rightclick = function(self, clicker)
 		-- feed to heal npc
 		if mobs:feed_tame(self, clicker, 8, true, true) then return end
 
@@ -91,9 +104,7 @@ on_rightclick = function(self, clicker)
 
 		-- by right-clicking owner can switch npc between follow and stand
 		if self.owner and self.owner == name then
-
 			if self.order == "follow" then
-
 				self.attack = nil
 				self.order = "stand"
 				self.state = "stand"
