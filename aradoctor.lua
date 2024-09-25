@@ -29,6 +29,20 @@ mobs:register_mob("people:aradoctor", {
         death = "people_femaledeath",
         distance = 10
     },
+    runaway_from = {
+        "mobs_mc:zombie",
+        "mobs_mc:baby_zombie",
+        "mobs_mc:husk",
+        "mobs_mc:baby_husk",
+        "mobs_mc:villager_zombie",
+        "mobs_mc:zombified_piglin",
+        "mobs_mc:zoglin",
+        "mobs_mc:pillager",
+        "mobs_mc:vindicator",
+        "mobs_mc:vex",
+        "mobs_mc:evoker",
+        "mobs_mc:illusioner",
+    },
     walk_velocity = 1.5,
     run_velocity = 2,
     stepheight = 1,
@@ -137,4 +151,3 @@ mobs:register_egg("people:aradoctor", S("Doctor Acacia"), "aaradoctor.png")
 
 -- compatibility
 mobs:alias_mob("people:aradoctor", "people:aradoctor")
-

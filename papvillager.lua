@@ -68,33 +68,6 @@ mobs:register_mob("people:papvillager", {
 })
 
 
--- if not mobs.custom_spawn_people then
-mobs:spawn({
-	name = "people:papvillager",
-			nodes = { "mcl_trees:tree_birch",
-		"mcl_trees:tree_dark_oak",
-		"mcl_trees:tree_acacia",
-		"mcl_trees:tree_jungle",
-		"mcl_trees:tree_spruce",
-		"mcl_trees:tree_oak",
-		"mcl_trees:tree_oak",
-		"mcl_trees:tree_mangrove",
-		"mcl_trees:tree_crimson",
-		"mcl_trees:tree_warped",
-		"mcl_trees:tree_bamboo",
-		"mcl_trees:tree_cherry_blossom",
-"mcl_core:stonebrick",
-		"mcl_trees:wood_birch",
-		"mcl_trees:wood_dark_oak",
-		"mcl_trees:wood_dark_oak",
-		"mcl_trees:wood_acacia" },
-	neighbors = {"people:villagerbed"},
-	min_light = 0,
-	interval = 30,
-	chance = 15000,
-	min_height = -25,
-	max_height = 1000,
-})
 
 mobs:register_egg("people:papvillager", S("Villager Jungle"), "apapvillager.png")
 
