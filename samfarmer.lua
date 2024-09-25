@@ -7,7 +7,7 @@ mobs.samfarmer_drops = {
 
 mobs:register_mob("people:samfarmer", {
 	type = "npc",
-	passive = true,
+	passive = false,
 	damage = 5,
 	attack_type = "dogfight",
 	owner_loyal = true,
@@ -120,9 +120,9 @@ mobs:register_mob("people:samfarmer", {
 
 -- if not mobs.custom_spawn_people then
 mobs:spawn({
-	name = "people:samfarmer",
-	nodes = { "mcl_farming:pumpkin", "mobs:meatblock", "mcl_core:cobble", "mcl_core:pine_wood", "mcl_core:dirt_with_grass", "ethereal:green_dirt", "mcl_core:stonebrick", "mcl_core:cobble", "mcl_core:wood", "mcl_farming:soil_wet" },
-	neighbors = { "group:grass", "people:feeder", "mcl_core:stonebrick", "mcl_core:brick" },
+	name = "people:medfarmer",
+	nodes = { "mcl_core:dirt_with_grass", "ethereal:green_dirt", "mcl_core:stonebrick", "mcl_core:cobble", "mcl_core:wood" },
+	neighbors = { "group:grass", "people:feeder" },
 	min_light = 1,
 	interval = 60,
 	chance = 8000,

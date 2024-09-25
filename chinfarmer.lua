@@ -1,13 +1,11 @@
 local S = minetest.get_translator("people")
 
-
-mobs.chinfarmer_drops = {
-	"people:dog", "people:goat", "people:dogfoodsack", "people:ridepig", "people:ridereindeer", "people:plough"
-}
+mobs.chinfarmer_drops = { "people:dog", "people:goat", "people:dogfoodsack", "people:ridepig", "people:ridereindeer",
+	"people:plough" }
 
 mobs:register_mob("people:chinfarmer", {
 	type = "npc",
-	passive = true,
+	passive = false,
 	damage = 5,
 	attack_type = "dogfight",
 	owner_loyal = true,
@@ -22,16 +20,13 @@ mobs:register_mob("people:chinfarmer", {
 	collisionbox = { -0.35, -1.0, -0.35, 0.35, 0.8, 0.35 },
 	visual = "mesh",
 	mesh = "Medfarmer2.b3d",
-	textures = {
-		{ "texturechinfarmer.png" },
-
-	},
+	textures = { { "texturechinfarmer.png" } },
 	makes_footstep_sound = true,
 	sounds = {
 		random = "people_farmerf",
 		damage = "people_female5",
 		death = "people_femaledeath",
-		distance = 10,
+		distance = 10
 	},
 	walk_velocity = 1.5,
 	run_velocity = 2,
@@ -39,14 +34,41 @@ mobs:register_mob("people:chinfarmer", {
 	fear_height = 2,
 	jump = true,
 	jump_height = 3,
-	stay_near = { { "people:feeder", "people:villagerbed", "mcl_books:bookshelf", "mcl_itemframes:item_frame", "mcl_lanterns:lantern", "mcl_lanterns:soul_lantern", "mcl_candles:candle", "mcl:bookcase", "xdecor:tv", "mcl_books:bookshelf", "mcl_boats:chest_boat", "livingcaves:root_lamp", "mcl_chests:chest", "mcl_core:mese_post_light_pine_wood", "mcl_nether:glowstone", "mcl_core:mese_post_light_pine_wood", "mcl_core:mese_post_light", "mcl_trees:wood_acacia", "mcl_core:mese_post_light_aspen_wood", "mcl_core:mese_post_light_junglewood", "animalworld:crocodilestool", "animalworld:elephantstool", "animalworld:bearstool", "animalworld:gnustool", "animalworld:hippostool", "animalworld:monitorstool", "animalworld:ivorychair", "animalworld:sealstool", "animalworld:yakstool", "animalworld:tigerstool", "animalworld:muskoxstool" }, 4 },
-	drops = { { name = "people:farmergrave", chance = 1, min = 1, max = 1 },
-	},
+	stay_near = { { "people:feeder", "people:villagerbed", "mcl_books:bookshelf", "mcl_itemframes:item_frame",
+		"mcl_lanterns:lantern", "mcl_lanterns:soul_lantern", "mcl_candles:candle", "mcl:bookcase",
+		"xdecor:tv", "mcl_books:bookshelf", "mcl_boats:chest_boat", "livingcaves:root_lamp",
+		"mcl_chests:chest", "mcl_core:mese_post_light_pine_wood", "mcl_nether:glowstone",
+		"mcl_core:mese_post_light_pine_wood", "mcl_core:mese_post_light", "mcl_trees:wood_acacia",
+		"mcl_core:mese_post_light_aspen_wood", "mcl_core:mese_post_light_junglewood",
+		"animalworld:crocodilestool", "animalworld:elephantstool", "animalworld:bearstool",
+		"animalworld:gnustool", "animalworld:hippostool", "animalworld:monitorstool",
+		"animalworld:ivorychair", "animalworld:sealstool", "animalworld:yakstool", "animalworld:tigerstool",
+		"animalworld:muskoxstool" }, 4 },
+	drops = { {
+		name = "people:farmergrave",
+		chance = 1,
+		min = 1,
+		max = 1
+	} },
 	water_damage = 1,
 	lava_damage = 3,
 	light_damage = 0,
 	follow = { "mcl_core:coal_lump" },
 	view_range = 15,
+	runaway_from = {
+		"mobs_mc:zombie",
+		"mobs_mc:baby_zombie",
+		"mobs_mc:husk",
+		"mobs_mc:baby_husk",
+		"mobs_mc:villager_zombie",
+		"mobs_mc:zombified_piglin",
+		"mobs_mc:zoglin",
+		"mobs_mc:pillager",
+		"mobs_mc:vindicator",
+		"mobs_mc:vex",
+		"mobs_mc:evoker",
+		"mobs_mc:illusioner",
+	},
 	owner = "",
 	order = "follow",
 	-- model animation
@@ -66,14 +88,20 @@ mobs:register_mob("people:chinfarmer", {
 		die_end = 300,
 		die_speed = 50,
 		die_loop = false,
-		die_rotate = true,
+		die_rotate = true
 	},
 	-- right clicking with raw meat will give Igor more health
 	on_rightclick = function(self, clicker)
 		-- feed to heal npc
-		if mobs:feed_tame(self, clicker, 8, false, true) then return end
-		if mobs:protect(self, clicker) then return end
-		if mobs:capture_mob(self, clicker, 0, 15, 25, false, nil) then return end
+		if mobs:feed_tame(self, clicker, 8, false, true) then
+			return
+		end
+		if mobs:protect(self, clicker) then
+			return
+		end
+		if mobs:capture_mob(self, clicker, 0, 15, 25, false, nil) then
+			return
+		end
 
 		local item = clicker:get_wielded_item()
 		local name = clicker:get_player_name()
@@ -115,14 +143,14 @@ mobs:register_mob("people:chinfarmer", {
 				minetest.chat_send_player(name, S("Farmer will follow you."))
 			end
 		end
-	end,
+	end
 })
 
 -- if not mobs.custom_spawn_people then
 mobs:spawn({
 	name = "people:chinfarmer",
-	nodes = { "mcl_trees:wood_acacia", "mcl_farming:pumpkin", "mobs:meatblock", "mcl_core:cobble", "mcl_core:pine_wood", "mcl_core:dirt_with_grass", "ethereal:green_dirt", "mcl_core:stonebrick", "mcl_core:cobble", "mcl_core:wood", "mcl_farming:soil_wet" },
-	neighbors = { "group:grass", "people:feeder", "mcl_core:stonebrick", "mcl_core:brick" },
+	nodes = { "mcl_core:dirt_with_grass", "ethereal:green_dirt", "mcl_core:stonebrick", "mcl_core:cobble", "mcl_farming:soil_wet" },
+	neighbors = { "group:grass" },
 	min_light = 1,
 	interval = 60,
 	chance = 8000,
@@ -131,55 +159,20 @@ mobs:spawn({
 	day_toggle = true
 })
 
-
 mcl_mobs.spawn_setup({
 	name = "people:chinfarmer",
 	type_of_spawning = "ground",
 	dimension = "overworld",
 	aoc = 9,
 	min_height = -25,
-	biomes = {
-		"flat",
-		"IcePlainsSpikes",
-		"ColdTaiga",
-		"ColdTaiga_beach",
-		"ColdTaiga_beach_water",
-		"MegaTaiga",
-		"MegaSpruceTaiga",
-		"ExtremeHills",
-		"ExtremeHills_beach",
-		"ExtremeHillsM",
-		"ExtremeHills+",
-		"Plains",
-		"Plains_beach",
-		"SunflowerPlains",
-		"Taiga",
-		"Taiga_beach",
-		"Forest",
-		"Forest_beach",
-		"FlowerForest",
-		"FlowerForest_beach",
-		"BirchForest",
-		"BirchForestM",
-		"RoofedForest",
-		"Savanna",
-		"Savanna_beach",
-		"SavannaM",
-		"Jungle",
-		"Jungle_shore",
-		"JungleM",
-		"JungleM_shore",
-		"JungleEdge",
-		"JungleEdgeM",
-		"BambooJungle",
-		"Swampland",
-		"Swampland_shore"
-	},
-	chance = 100,
+	biomes = { "flat", "IcePlainsSpikes", "ColdTaiga", "ColdTaiga_beach", "ColdTaiga_beach_water", "MegaTaiga",
+		"MegaSpruceTaiga", "ExtremeHills", "ExtremeHills_beach", "ExtremeHillsM", "ExtremeHills+", "Plains",
+		"Plains_beach", "SunflowerPlains", "Taiga", "Taiga_beach", "Forest", "Forest_beach", "FlowerForest",
+		"FlowerForest_beach", "BirchForest", "BirchForestM", "RoofedForest", "Savanna", "Savanna_beach",
+		"SavannaM", "Jungle", "Jungle_shore", "JungleM", "JungleM_shore", "JungleEdge", "JungleEdgeM",
+		"BambooJungle", "Swampland", "Swampland_shore" },
+	chance = 100
 })
---end
+-- end
 -- register spawn egg
 mobs:register_egg("people:chinfarmer", S("Farmer Aspen"), "achinfarmer.png")
-
--- compatibility
-mobs:alias_mob("people:chinfarmer", "people:chinfarmer")
