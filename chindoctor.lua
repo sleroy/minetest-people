@@ -139,7 +139,7 @@ mobs:spawn({
 	interval = 30,
 	chance = 15000,
 	min_height = -25,
-	max_height = 1000,
+	max_height = 1000
 })
 -- end
 -- register spawn egg

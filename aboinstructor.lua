@@ -157,7 +157,7 @@ mcl_mobs.spawn_setup({
 	type_of_spawning = "ground",
 	dimension = "overworld",
 	aoc = 2,
-	min_height = 0,
+	min_height = -25,
 	biomes = {
 		"flat",
 		"IcePlainsSpikes",

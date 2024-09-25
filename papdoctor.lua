@@ -165,7 +165,7 @@ mcl_mobs.spawn_setup({
     name = "people:papdoctor",
     type_of_spawning = "ground",
     dimension = "overworld",
-    aoc = 2,
+    aoc = 5,
     min_height = -25,
     biomes = {
         "flat",
