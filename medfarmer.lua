@@ -1,9 +1,8 @@
-
 local S = minetest.get_translator("people")
 
 
 mobs.medfarmer_drops = {
-"people:dog", "people:goat", "people:dogfoodsack", "people:ridepig", "people:rideox", "people:plough"
+	"people:dog", "people:goat", "people:dogfoodsack", "people:ridepig", "people:rideox", "people:plough"
 }
 
 mobs:register_mob("people:medfarmer", {
@@ -20,11 +19,11 @@ mobs:register_mob("people:medfarmer", {
 	hp_min = 25,
 	hp_max = 35,
 	armor = 100,
-	collisionbox = {-0.35,-1.0,-0.35, 0.35,0.8,0.35},
+	collisionbox = { -0.35, -1.0, -0.35, 0.35, 0.8, 0.35 },
 	visual = "mesh",
 	mesh = "Medfarmer.b3d",
 	textures = {
-		{"texturemedfarmer.png"},
+		{ "texturemedfarmer.png" },
 
 	},
 	makes_footstep_sound = true,
@@ -33,20 +32,20 @@ mobs:register_mob("people:medfarmer", {
 		damage = "people_male5",
 		death = "people_maledeath",
 		distance = 10,
-},
+	},
 	walk_velocity = 1.5,
 	run_velocity = 2,
 	stepheight = 1,
 	fear_height = 2,
 	jump = true,
-        jump_height = 3,
-        stay_near = {{"people:feeder", "people:villagerbed", "mcl_books:bookshelf", "mcl_itemframes:item_frame","mcl_lanterns:lantern", "mcl_lanterns:soul_lantern", "mcl_candles:candle", "mcl:bookcase", "xdecor:tv", "mcl_books:bookshelf", "mcl_boats:chest_boat", "livingcaves:root_lamp", "mcl_chests:chest", "mcl_core:mese_post_light_pine_wood", "mcl_nether:glowstone", "mcl_core:mese_post_light_pine_wood", "mcl_core:mese_post_light", "mcl_trees:wood_acacia", "mcl_core:mese_post_light_aspen_wood", "mcl_core:mese_post_light_junglewood", "animalworld:crocodilestool", "animalworld:elephantstool", "animalworld:bearstool", "animalworld:gnustool", "animalworld:hippostool", "animalworld:monitorstool", "animalworld:ivorychair", "animalworld:sealstool", "animalworld:yakstool", "animalworld:tigerstool", "animalworld:muskoxstool"}, 4},
-	drops = {		{name = "people:farmergrave", chance = 1, min = 1, max = 1},
+	jump_height = 3,
+	stay_near = { { "people:feeder", "people:villagerbed", "mcl_books:bookshelf", "mcl_itemframes:item_frame", "mcl_lanterns:lantern", "mcl_lanterns:soul_lantern", "mcl_candles:candle", "mcl:bookcase", "xdecor:tv", "mcl_books:bookshelf", "mcl_boats:chest_boat", "livingcaves:root_lamp", "mcl_chests:chest", "mcl_core:mese_post_light_pine_wood", "mcl_nether:glowstone", "mcl_core:mese_post_light_pine_wood", "mcl_core:mese_post_light", "mcl_trees:wood_acacia", "mcl_core:mese_post_light_aspen_wood", "mcl_core:mese_post_light_junglewood", "animalworld:crocodilestool", "animalworld:elephantstool", "animalworld:bearstool", "animalworld:gnustool", "animalworld:hippostool", "animalworld:monitorstool", "animalworld:ivorychair", "animalworld:sealstool", "animalworld:yakstool", "animalworld:tigerstool", "animalworld:muskoxstool" }, 4 },
+	drops = { { name = "people:farmergrave", chance = 1, min = 1, max = 1 },
 	},
 	water_damage = 1,
 	lava_damage = 3,
 	light_damage = 0,
-	follow = {"mcl_core:coal_lump"},
+	follow = { "mcl_core:coal_lump" },
 	view_range = 15,
 	owner = "",
 	order = "follow",
@@ -71,7 +70,6 @@ mobs:register_mob("people:medfarmer", {
 	},
 	-- right clicking with raw meat will give Igor more health
 	on_rightclick = function(self, clicker)
-
 		-- feed to heal npc
 		if mobs:feed_tame(self, clicker, 8, false, true) then return end
 		if mobs:protect(self, clicker) then return end
@@ -82,7 +80,6 @@ mobs:register_mob("people:medfarmer", {
 
 		-- right clicking with gold lump drops random item from mobs.npc_drops
 		if item:get_name() == "mcl_core:gold_ingot" then
-
 			if not mobs.is_creative(name) then
 				item:take_item()
 				clicker:set_wielded_item(item)
@@ -105,9 +102,7 @@ mobs:register_mob("people:medfarmer", {
 
 		-- if owner switch between follow and stand
 		if self.owner and self.owner == name then
-
 			if self.order == "follow" then
-
 				self.attack = nil
 				self.order = "stand"
 				self.state = "stand"
@@ -126,13 +121,61 @@ mobs:register_mob("people:medfarmer", {
 -- if not mobs.custom_spawn_people then
 mobs:spawn({
 	name = "people:medfarmer",
-	nodes = {"mcl_core:wood"},
-	neighbors = {"people:feeder"},
-	min_light = 0,
-	interval = 30,
-	chance = 15000,
-	min_height = -25,
-	max_height = 1000,
+	nodes = { "mcl_core:dirt_with_grass", "ethereal:green_dirt", "mcl_core:stonebrick", "mcl_core:cobble", "mcl_core:wood" },
+	neighbors = { "group:grass", "people:feeder" },
+	min_light = 1,
+	interval = 60,
+	chance = 8000,
+	min_height = -15,
+	max_height = 200,
+	day_toggle = true
+})
+
+
+mcl_mobs.spawn_setup({
+	name = "people:medfarmer",
+	type_of_spawning = "ground",
+	dimension = "overworld",
+	aoc = 9,
+	min_height = -10,
+	biomes = {
+		"flat",
+		"IcePlainsSpikes",
+		"ColdTaiga",
+		"ColdTaiga_beach",
+		"ColdTaiga_beach_water",
+		"MegaTaiga",
+		"MegaSpruceTaiga",
+		"ExtremeHills",
+		"ExtremeHills_beach",
+		"ExtremeHillsM",
+		"ExtremeHills+",
+		"Plains",
+		"Plains_beach",
+		"SunflowerPlains",
+		"Taiga",
+		"Taiga_beach",
+		"Forest",
+		"Forest_beach",
+		"FlowerForest",
+		"FlowerForest_beach",
+		"BirchForest",
+		"BirchForestM",
+		"RoofedForest",
+		"Savanna",
+		"Savanna_beach",
+		"SavannaM",
+		"Jungle",
+		"Jungle_shore",
+		"JungleM",
+		"JungleM_shore",
+		"JungleEdge",
+		"JungleEdgeM",
+		"BambooJungle",
+		"Swampland",
+		"Swampland_shore"
+	},
+	chance = 100,
 })
 --end
 -- register spawn egg
@@ -142,17 +185,17 @@ mobs:register_egg("people:medfarmer", S("Farmer Apple"), "amedfarmer.png")
 mobs:alias_mob("people:medfarmer", "people:medfarmer")
 
 minetest.register_node("people:farmergrave", {
-    description = S"Grave",
-    visual_scale = 1,
-    mesh = "Grave.b3d",
-    tiles = {"texturegrave.png"},
-    inventory_image = "agrave.png",
-    paramtype = "light",
-    paramtype2 = "facedir",
-    groups = {choppy = 3},
-    drawtype = "mesh",
-		collisionbox = {-0.4, -0.01, -0.4, 0.4, 0.4, 0.4},
-    sounds = mcl_sounds.node_sound_wood_defaults()
+	description = S "Grave",
+	visual_scale = 1,
+	mesh = "Grave.b3d",
+	tiles = { "texturegrave.png" },
+	inventory_image = "agrave.png",
+	paramtype = "light",
+	paramtype2 = "facedir",
+	groups = { choppy = 3 },
+	drawtype = "mesh",
+	collisionbox = { -0.4, -0.01, -0.4, 0.4, 0.4, 0.4 },
+	sounds = mcl_sounds.node_sound_wood_defaults()
 })
 
 minetest.register_craft({
@@ -160,4 +203,3 @@ minetest.register_craft({
 	recipe = "people:farmergrave",
 	burntime = 6,
 })
-

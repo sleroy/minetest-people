@@ -12,14 +12,14 @@ mobs:register_mob("people:zombiedoctor", {
     hp_min = 35,
     hp_max = 75,
     armor = 100,
-    collisionbox = {-0.5, -0.01, -0.5, 0.5, 1.3, 0.5},
+    collisionbox = { -0.5, -0.01, -0.5, 0.5, 1.3, 0.5 },
     visual = "mesh",
     mesh = "Zombie.b3d",
     visual_size = {
         x = 1.0,
         y = 1.0
     },
-    textures = {{"texturezombie.png"}},
+    textures = { { "texturezombie.png" } },
     sounds = {
         attack = "people_zombie4",
         random = "people_zombie",
@@ -33,10 +33,10 @@ mobs:register_mob("people:zombiedoctor", {
     walk_chance = 10,
     runaway = false,
     jump = true,
-    stay_near = {{"people:firstaidnode"}, 4},
-    drops = {"mcl_torches:torch", "mcl_armor:helmet_chain", "mcl_farming:carrot_item_gold", "people:firsaidkit",
-             "mcl_potions:glass_bottle", "mcl_potions:water_breathing", "mcl_potions:fire_resistance",
-             "mcl_potions:healing", "mcl_potions:swiftness"},
+    stay_near = { { "people:firstaidnode" }, 4 },
+    drops = { "mcl_torches:torch", "mcl_armor:helmet_chain", "mcl_farming:carrot_item_gold", "people:firsaidkit",
+        "mcl_potions:glass_bottle", "mcl_potions:water_breathing", "mcl_potions:fire_resistance",
+        "mcl_potions:healing", "mcl_potions:swiftness" },
     water_damage = 0,
     lava_damage = 4,
     light_damage = 2,
@@ -74,18 +74,28 @@ mobs:register_mob("people:zombiedoctor", {
 })
 
 -- if not mobs.custom_spawn_people then
-    mobs:spawn({
-        name = "people:zombiedoctor",
-        nodes = {"mcl_core:stone"},
-        neighbors = {"people:doctorgrave"},
-        min_light = 0,
-        interval = 30,
-        active_object_count = 2,
-        chance = 10, -- 15000
-        min_height = -25,
-        max_height = 1000,
-        day_toggle = false
-    })
+mobs:spawn({
+    name = "people:zombiedoctor",
+    nodes = { "mcl_wool:white_carpet", "mcl_core:stonebrick", "mcl_core:cobble", "mcl_wool:brown_carpet",
+        "mcl_wool:silver_carpet", "mcl_wool:silver_carpet",
+        "mcl_wool:grey_carpet", "mcl_wool:blue_carpet", "mcl_wool:green_carpet",
+        "mcl_wool:green_carpetmcl_wool:lime_carpet", "mcl_wool:purple_carpet", "mcl_wool:pink_carpet",
+        "mcl_wool:yellow_carpet", "mcl_wool:orange_carpet", "mcl_wool:red_carpet", "mcl_wool:cyan_carpet",
+        "mcl_wool:magenta_carpet", "mcl_wool:black_carpet", "mcl_wool:light_blue_carpet", "mcl_trees:tree_birch",
+        "mcl_trees:tree_dark_oak", "mcl_trees:tree_acacia", "mcl_trees:tree_jungle", "mcl_trees:tree_spruce",
+        "mcl_trees:tree_oak", "mcl_trees:tree_oak", "mcl_trees:tree_mangrove", "mcl_trees:tree_crimson",
+        "mcl_trees:tree_warped", "mcl_trees:tree_bamboo", "mcl_trees:tree_cherry_blossom", "mcl_core:stonebrick",
+        "mcl_core:cobble",
+        "mcl_trees:wood_birch", "mcl_trees:wood_dark_oak", "mcl_trees:wood_dark_oak", "mcl_trees:wood_acacia" },
+    neighbors = { "people:doctorgrave" },
+    min_light = 0,
+    interval = 30,
+    active_object_count = 2,
+    chance = 10,     -- 15000
+    min_height = -25,
+    max_height = 1000,
+    day_toggle = false
+})
 
 
 mobs:register_egg("people:zombiedoctor", S("Zombie"), "azombie.png")

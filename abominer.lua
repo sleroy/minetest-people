@@ -122,9 +122,9 @@ mobs:register_mob("people:abominer", {
 })
 
 ---- if not mobs.custom_spawn_people then
-	mobs:spawn({
-		name = "people:abominer",
-		nodes = { "mcl_trees:tree_birch",
+mobs:spawn({
+	name = "people:abominer",
+	nodes = { "mcl_trees:tree_birch", "mcl_core:stonebrick", "mcl_core:cobble",
 		"mcl_trees:tree_dark_oak",
 		"mcl_trees:tree_acacia",
 		"mcl_trees:tree_jungle",
@@ -136,18 +136,18 @@ mobs:register_mob("people:abominer", {
 		"mcl_trees:tree_warped",
 		"mcl_trees:tree_bamboo",
 		"mcl_trees:tree_cherry_blossom",
-"mcl_core:stonebrick",
-		"mcl_trees:wood_birch",
+		"mcl_core:stonebrick",
+		"mcl_trees:wood_birch", "mcl_core:stonebrick", "mcl_core:cobble",
 		"mcl_trees:wood_dark_oak",
 		"mcl_trees:wood_dark_oak",
 		"mcl_trees:wood_acacia" },
-		neighbors = { "people:mineshaft" },
-		min_light = 0,
-		interval = 30,
-		chance = 15000,
-		min_height = -25,
-		max_height = 1000,
-	})
+	neighbors = { "people:mineshaft" },
+	min_light = 0,
+	interval = 30,
+	chance = 15000,
+	min_height = -25,
+	max_height = 1000,
+})
 --end
 
 -- register spawn egg
@@ -158,16 +158,16 @@ mobs:alias_mob("people:abominer", "people:abominer")
 mcl_mobs.spawn_setup({
 	name = "people:abominer",
 	type_of_spawning = "ground",
-    dimension = "overworld",
+	dimension = "overworld",
 	aoc = 9,
 	min_height = 0,
 	biomes = {
-		"flat",	
+		"flat",
 		"Plains",
-		"Plains_beach",		
+		"Plains_beach",
 		"Savanna",
 		"Savanna_beach",
-		"SavannaM"		
+		"SavannaM"
 	},
 	chance = 100,
 })

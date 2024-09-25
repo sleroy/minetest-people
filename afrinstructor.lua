@@ -127,9 +127,9 @@ mobs:register_mob("people:afrinstructor", {
 })
 
 -- if not mobs.custom_spawn_people then
-	mobs:spawn({
-		name = "people:afrinstructor",
-		nodes = { "mcl_trees:tree_birch",
+mobs:spawn({
+	name = "people:afrinstructor",
+	nodes = { "mcl_trees:tree_birch", "mcl_core:stonebrick", "mcl_core:cobble",
 		"mcl_trees:tree_dark_oak",
 		"mcl_trees:tree_acacia",
 		"mcl_trees:tree_jungle",
@@ -141,18 +141,18 @@ mobs:register_mob("people:afrinstructor", {
 		"mcl_trees:tree_warped",
 		"mcl_trees:tree_bamboo",
 		"mcl_trees:tree_cherry_blossom",
-"mcl_core:stonebrick",
+		"mcl_core:stonebrick",
 		"mcl_trees:wood_birch",
 		"mcl_trees:wood_dark_oak",
 		"mcl_trees:wood_dark_oak",
 		"mcl_trees:wood_acacia" },
-		neighbors = { "people:weaponstand" },
-		min_light = 0,
-		interval = 30,
-		chance = 15000,
-		min_height = -25,
-		max_height = 1000,
-	})
+	neighbors = { "people:weaponstand" },
+	min_light = 0,
+	interval = 30,
+	chance = 15000,
+	min_height = -25,
+	max_height = 1000,
+})
 --end
 -- register spawn egg
 mobs:register_egg("people:afrinstructor", S("Instructor Acacia"), "aafrinstructor.png")
@@ -162,16 +162,16 @@ mobs:alias_mob("people:afrinstructor", "people:afrinstructor")
 mcl_mobs.spawn_setup({
 	name = "people:afrinstructor",
 	type_of_spawning = "ground",
-    dimension = "overworld",
+	dimension = "overworld",
 	aoc = 2,
 	min_height = 0,
 	biomes = {
-		"flat",	
+		"flat",
 		"Plains",
-		"Plains_beach",		
+		"Plains_beach",
 		"Savanna",
 		"Savanna_beach",
-		"SavannaM"		
+		"SavannaM"
 	},
 	chance = 100,
 })

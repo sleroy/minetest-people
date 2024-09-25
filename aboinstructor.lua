@@ -140,7 +140,7 @@ mobs:spawn({
 	"mcl_trees:tree_cherry_blossom",
 	"mcl_core:stonebrick",
 	"mcl_trees:wood_birch",
-	"mcl_trees:wood_dark_oak",
+	"mcl_trees:wood_dark_oak", "mcl_core:stonebrick", "mcl_core:cobble",
 	"mcl_trees:wood_dark_oak",
 	"mcl_trees:wood_acacia" },
 	neighbors = {"people:weaponstand"},

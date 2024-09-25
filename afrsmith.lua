@@ -146,9 +146,9 @@ mobs:register_mob("people:afrsmith", {
 })
 
 -- if not mobs.custom_spawn_people then
-	mobs:spawn({
-		name = "people:afrsmith",
-		nodes = { "mcl_trees:tree_birch",
+mobs:spawn({
+	name = "people:afrsmith",
+	nodes = { "mcl_trees:tree_birch", "mcl_core:stonebrick", "mcl_core:cobble",
 		"mcl_trees:tree_dark_oak",
 		"mcl_trees:tree_acacia",
 		"mcl_trees:tree_jungle",
@@ -160,18 +160,18 @@ mobs:register_mob("people:afrsmith", {
 		"mcl_trees:tree_warped",
 		"mcl_trees:tree_bamboo",
 		"mcl_trees:tree_cherry_blossom",
-"mcl_core:stonebrick",
+		"mcl_core:stonebrick",
 		"mcl_trees:wood_birch",
 		"mcl_trees:wood_dark_oak",
 		"mcl_trees:wood_dark_oak",
 		"mcl_trees:wood_acacia" },
-		neighbors = { "people:forge" },
-		min_light = 0,
-		interval = 30,
-		chance = 15000,
-		min_height = -25,
-		max_height = 1000,
-	})
+	neighbors = { "people:forge" },
+	min_light = 0,
+	interval = 30,
+	chance = 15000,
+	min_height = -25,
+	max_height = 1000,
+})
 --end
 -- register spawn egg
 mobs:register_egg("people:afrsmith", S("Blacksmith Acacia"), "aafrsmith.png")
