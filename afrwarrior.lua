@@ -5,7 +5,7 @@ local S = minetest.get_translator("people")
 
 mobs:register_mob("people:afrwarrior", {
 	type = "npc",
-	passive = false,
+	passive = true,
 	damage = 10,
 	attack_type = "dogshoot",
 	dogshoot_switch = 1,

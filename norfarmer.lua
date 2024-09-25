@@ -118,20 +118,8 @@ mobs:register_mob("people:norfarmer", {
 	end,
 })
 
--- if not mobs.custom_spawn_people then
-mobs:spawn({
-	name = "people:norfarmer",
-	nodes = { "mcl_core:pine_wood", "mcl_core:dirt_with_grass", "ethereal:green_dirt", "mcl_core:stonebrick", "mcl_core:cobble", "mcl_farming:soil_wet" },
-	neighbors = { "group:grass", "people:feeder" },
-	min_light = 1,
-	interval = 60,
-	chance = 8000,
-	min_height = -15,
-	max_height = 200,
-	day_toggle = true
-})
 
---end
+
 -- register spawn egg
 mobs:register_egg("people:norfarmer", S("Farmer Pine"), "anorfarmer.png")
 

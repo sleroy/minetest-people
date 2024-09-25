@@ -7,7 +7,7 @@ mobs.medfarmer_drops = {
 
 mobs:register_mob("people:medfarmer", {
 	type = "npc",
-	passive = false,
+	passive = true,
 	damage = 5,
 	attack_type = "dogfight",
 	owner_loyal = true,

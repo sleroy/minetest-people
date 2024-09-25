@@ -129,42 +129,7 @@ mobs:register_mob("people:norsmith", {
 	end,
 })
 
--- if not mobs.custom_spawn_people then
-mobs:spawn({
-	name = "people:norsmith",
-	nodes = { "mcl_trees:tree_birch", "mcl_core:stonebrick", "mcl_core:cobble",
-		"mcl_trees:tree_dark_oak",
-		"mcl_trees:tree_acacia",
-		"mcl_trees:tree_jungle",
-		"mcl_trees:tree_spruce",
-		"mcl_trees:tree_oak",
-		"mcl_trees:tree_oak",
-		"mcl_trees:tree_mangrove",
-		"mcl_trees:tree_crimson",
-		"mcl_trees:tree_warped",
-		"mcl_trees:tree_bamboo",
-		"mcl_trees:tree_cherry_blossom",
-		"mcl_core:stonebrick",
-		"mcl_trees:wood_birch",
-		"mcl_trees:wood_dark_oak",
-		"mcl_trees:wood_dark_oak",
-		"mcl_trees:wood_acacia" },
-	neighbors = { "people:forge", "people:villagerbed",
-		"mcl_books:bookshelf", "mcl_itemframes:item_frame", "mcl_lanterns:lantern", "mcl_lanterns:soul_lantern",
-		"mcl_candles:candle", "mcl:bookcase", "xdecor:tv", "mcl_books:bookshelf", "mcl_boats:chest_boat",
-		"livingcaves:root_lamp", "mcl_chests:chest", "mcl_core:mese_post_light_pine_wood", "mcl_nether:glowstone",
-		"mcl_core:mese_post_light_pine_wood", "mcl_core:mese_post_light", "mcl_trees:wood_acacia",
-		"mcl_core:mese_post_light_aspen_wood", "mcl_core:mese_post_light_junglewood", "animalworld:crocodilestool",
-		"animalworld:elephantstool", "animalworld:bearstool", "animalworld:gnustool", "animalworld:hippostool",
-		"animalworld:monitorstool", "animalworld:ivorychair", "animalworld:sealstool", "animalworld:yakstool",
-		"animalworld:tigerstool", "animalworld:muskoxstool" },
-	min_light = 0,
-	interval = 30,
-	chance = 15000,
-	min_height = -25,
-	max_height = 1000,
-})
---end
+
 -- register spawn egg
 mobs:register_egg("people:norsmith", S("Blacksmith Pine"), "anorsmith.png")
 

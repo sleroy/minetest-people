@@ -7,7 +7,7 @@ mobs.afrfarmer_drops = {
 
 mobs:register_mob("people:afrfarmer", {
 	type = "npc",
-	passive = false,
+	passive = true,
 	damage = 5,
 	attack_type = "dogfight",
 	owner_loyal = true,
@@ -140,65 +140,6 @@ mobs:register_mob("people:afrfarmer", {
 	end,
 })
 
----- if not mobs.custom_spawn_people then
-mobs:spawn({
-	name = "people:afrfarmer",
-	nodes = { "mcl_core:dirt_with_grass", "ethereal:green_dirt", "mcl_core:stonebrick", "mcl_core:cobble", "mcl_farming:soil_wet" },
-	neighbors = { "group:grass" },
-	min_light = 1,
-	interval = 60,
-	chance = 8000,
-	min_height = -15,
-	max_height = 200,
-	day_toggle = true
-})
-
-
-mcl_mobs.spawn_setup({
-	name = "people:afrfarmer",
-	type_of_spawning = "ground",
-	dimension = "overworld",
-	aoc = 9,
-	min_height = -10,
-	biomes = {
-		"flat",
-		"IcePlainsSpikes",
-		"ColdTaiga",
-		"ColdTaiga_beach",
-		"ColdTaiga_beach_water",
-		"MegaTaiga",
-		"MegaSpruceTaiga",
-		"ExtremeHills",
-		"ExtremeHills_beach",
-		"ExtremeHillsM",
-		"ExtremeHills+",
-		"Plains",
-		"Plains_beach",
-		"SunflowerPlains",
-		"Taiga",
-		"Taiga_beach",
-		"Forest",
-		"Forest_beach",
-		"FlowerForest",
-		"FlowerForest_beach",
-		"BirchForest",
-		"BirchForestM",
-		"RoofedForest",
-		"Savanna",
-		"Savanna_beach",
-		"SavannaM",
-		"Jungle",
-		"Jungle_shore",
-		"JungleM",
-		"JungleM_shore",
-		"JungleEdge",
-		"JungleEdgeM",
-		"BambooJungle",
-		"Swampland",
-		"Swampland_shore"
-	},
-	chance = 100,
-})
 
 
 --end
