@@ -121,8 +121,8 @@ local warrior_near = { "people:weaponstand", "people:villagerbed", "mcl_books:bo
 	"mcl_lanterns:lantern", "mcl_lanterns:soul_lantern", "mcl_candles:candle", "mcl:bookcase", "xdecor:tv",
 	"mcl_books:bookshelf", "mcl_boats:chest_boat", "livingcaves:root_lamp", "mcl_chests:chest",
 	"mcl_core:mese_post_light_pine_wood", "mcl_nether:glowstone" }
-local forge_near = { "people:forge" }
-local miner_near = {}
+local forge_near = { "people:forge", "mcl_anvils:anvil" }
+local miner_near = { "mcl_anvils:anvil" }
 local instructor_near = { "people:weaponstand" }
 local villager_near = { 'mcl_core:stonebrick', "mcl_core:pine_wood" }
 local doctor_nodes = { "mcl_wool:white_carpet", "mcl_core:stonebrick", "mcl_wool:brown_carpet",

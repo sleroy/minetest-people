@@ -1,20 +1,20 @@
 local S = minetest.get_translator("people")
 
 minetest.register_node("people:forge", {
-    description = S"Anvil",
+    description = S "Anvil",
     visual_scale = 0.5,
     mesh = "Forge.b3d",
-    tiles = {"textureforge.png"},
+    tiles = { "textureforge.png" },
     inventory_image = "aforge.png",
     paramtype = "light",
     paramtype2 = "facedir",
-    groups = {choppy = 3},
+    groups = { choppy = 3 },
     walkable = false,
     drawtype = "mesh",
     collision_box = {
         type = "fixed",
         fixed = {
-            {-0.3, -0.3, -0.3, 0.3, 0.3, 0.3},
+            { -0.3, -0.3, -0.3, 0.3, 0.3, 0.3 },
             --[[{-0.3, -0.3, -0.3, 0.3, 0.3, 0.3},
             {-0.3, -0.3, -0.3, 0.3, 0.3, 0.3}]]
         }
@@ -22,14 +22,14 @@ minetest.register_node("people:forge", {
     selection_box = {
         type = "fixed",
         fixed = {
-            {-0.3, -0.3, -0.3, 0.3, 0.3, 0.3}
+            { -0.3, -0.3, -0.3, 0.3, 0.3, 0.3 }
         }
     },
     sounds = mcl_sounds.node_sound_wood_defaults()
 })
 
 minetest.register_craft({
-	type = "cooking",
-	output = "mcl_core:steel_ingot",
-	recipe = "people:forge",
+    type = "cooking",
+    output = "mcl_core:steel_ingot",
+    recipe = "people:forge",
 })

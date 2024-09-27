@@ -4,7 +4,7 @@ mobs:register_mob("people:dog", {
 	type = "animal",
 	visual = "mesh",
 	mesh = "Dog.b3d",
-	collisionbox = {-0.4, -0.01, -0.4, 0.4, 0.5, 0.4},
+	collisionbox = { -0.4, -0.01, -0.4, 0.4, 0.5, 0.4 },
 	animation = {
 		speed_normal = 100,
 		stand_speed = 50,
@@ -35,10 +35,10 @@ mobs:register_mob("people:dog", {
 		die_rotate = true,
 	},
 	textures = {
-		{"texturedog.png"}
+		{ "texturedog.png" }
 	},
 	child_texture = {
-		{"texturedogbaby.png"},
+		{ "texturedogbaby.png" },
 	},
 	fear_height = 3,
 	runaway = false,
@@ -57,23 +57,23 @@ mobs:register_mob("people:dog", {
 	attack_npcs = false,
 	pathfinding = true,
 	group_attack = true,
-	hp_min = 45,
-	hp_max = 75,
-	armor = 100,
+	hp_min = 25,
+	hp_max = 25,
+	armor = 30,
 	knock_back = 2,
 	lava_damage = 5,
 	fall_damage = 1,
 	water_damage = 0,
-        stay_near = {{"people:dogfoodsack", "mobs:meatblock"}, 5},
+	stay_near = { { "people:dogfoodsack", "mobs:meatblock" }, 5 },
 	makes_footstep_sound = true,
 	sounds = {
-			attack = "people_dog4",
+		attack = "people_dog4",
 		random = "people_dog2",
 		damage = "people_dog3",
 		death = "people_dog5",
 		distance = 10,
 	},
-	follow = {"people:dogfood", "people:dogfood_cooked", "livingfloatlands:theropodcooked", "mobs:meatblock", "animalworld:whelaemeat_cooked", "animalworld:rat_cooked", "mobs:meat", "animalworld:chicken_cooked", "livingfloatlands:sauropodcooked", "livingfloatlands:ornithischiacooked", "nativevillages:driedhumanmeat", "livingfloatlands:largemammalcooked", "pie:meat"},
+	follow = { "people:dogfood", "people:dogfood_cooked", "livingfloatlands:theropodcooked", "mobs:meatblock", "animalworld:whelaemeat_cooked", "animalworld:rat_cooked", "mobs:meat", "animalworld:chicken_cooked", "livingfloatlands:sauropodcooked", "livingfloatlands:ornithischiacooked", "nativevillages:driedhumanmeat", "livingfloatlands:largemammalcooked", "pie:meat" },
 	on_rightclick = function(self, clicker)
 		if mobs:feed_tame(self, clicker, 6, true, true) then return end
 		if mobs:protect(self, clicker) then return end
@@ -103,13 +103,13 @@ mobs:register_mob("people:dog", {
 	end
 })
 
-mobs:register_egg("people:dog", S"Dog", "adog.png")
+mobs:register_egg("people:dog", S "Dog", "adog.png")
 -- raw dogfood
 minetest.register_craftitem(":people:dogfood", {
 	description = S("Dog Food"),
 	inventory_image = "people_dogfood.png",
 	on_use = minetest.item_eat(2),
-	groups = {food_meat_raw = 1, food_mutton_raw = 1, flammable = 2},
+	groups = { food_meat_raw = 1, food_mutton_raw = 1, flammable = 2 },
 })
 
 -- cooked dogfood
@@ -117,7 +117,7 @@ minetest.register_craftitem(":people:dogfood_cooked", {
 	description = S("Cooked Dog Food"),
 	inventory_image = "people_dogfood_cooked.png",
 	on_use = minetest.item_eat(6),
-	groups = {food_meat = 1, food_mutton = 1, flammable = 2},
+	groups = { food_meat = 1, food_mutton = 1, flammable = 2 },
 })
 
 minetest.register_craft({
@@ -129,7 +129,7 @@ minetest.register_craft({
 
 
 minetest.register_node("people:dogfoodsack", {
-	description = S"Sack of Dog Food",
+	description = S "Sack of Dog Food",
 	tiles = {
 		"people_dogfoodsack_top.png",
 		"people_dogfoodsack_bottom.png",
@@ -138,7 +138,7 @@ minetest.register_node("people:dogfoodsack", {
 		"people_dogfoodsack_back.png",
 		"people_dogfoodsack_front.png"
 	},
-	groups = {crumbly = 3},
+	groups = { crumbly = 3 },
 	drop = "people:dogfood 9",
 	sounds = mcl_sounds.node_sound_dirt_defaults(),
 })
@@ -146,8 +146,8 @@ minetest.register_node("people:dogfoodsack", {
 minetest.register_craft({
 	output = "people:dogfoodsack",
 	recipe = {
-		{"people:dogfood", "people:dogfood", "people:dogfood"},
-		{"people:dogfood", "people:dogfood", "people:dogfood"},
-		{"people:dogfood", "people:dogfood", "people:dogfood"},
+		{ "people:dogfood", "people:dogfood", "people:dogfood" },
+		{ "people:dogfood", "people:dogfood", "people:dogfood" },
+		{ "people:dogfood", "people:dogfood", "people:dogfood" },
 	}
 })
