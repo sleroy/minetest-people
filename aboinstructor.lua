@@ -29,7 +29,6 @@ mobs:register_mob("people:aboinstructor", {
 	-- Spawn warriors
 	on_die = function(self, pos, cmi_cause)
 		-- Drop a random music disc when killed by skeleton or stray
-		mcl_util.replace_mob(self.object, "people:abowarrior")
 	end,
 	makes_footstep_sound = true,
 	sounds = {
