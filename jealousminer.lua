@@ -57,7 +57,19 @@ mobs:register_mob("people:jealousminer", {
 		die_rotate = true,
 	},
 	view_range = 15,
+	do_punch = function(self, hitter,
+						time_from_last_punch,
+						tool_capabilities,
+						direction)
+		local entity = hitter:get_luaentity()
 
+		print(entity)
+		if entity == nil then return true end
+		if entity ~= nil and (entity == "people:ewewarrior" or entity.type == "npc")
+		then
+			return false
+		end
+	end,
 	on_rightclick = function(self, clicker)
 		-- feed or tame
 		if mobs:feed_tame(self, clicker, 4, false, true) then return end
