@@ -376,56 +376,57 @@ local sam_biomes = {
 
 
 local all_people = {
-	{ name = 'nordoctor',      nodes = TableConcat(nor_nodes, doctor_nodes),   neighbors = TableConcat(nor_neigh, doctor_neighbors),     biomes = nor_biomes },
-	{ name = 'norfarmer',      nodes = farm_nodes,                             neighbors = TableConcat(nor_neigh, farmer_neighbors),     biomes = nor_biomes },
-	{ name = 'norinstructor',  nodes = nor_nodes,                              neighbors = TableConcat(nor_neigh, instructor_near),      biomes = nor_biomes },
-	{ name = 'norminer',       nodes = nor_nodes,                              neighbors = TableConcat(nor_neigh, miner_near),           biomes = nor_biomes },
-	{ name = 'norsmith',       nodes = nor_nodes,                              neighbors = TableConcat(nor_neigh, forge_near),           biomes = nor_biomes },
-	{ name = 'norvillager',    nodes = TableConcat(nor_nodes, villager_nodes), neighbors = TableConcat3(nor_neigh, beds, villager_near), biomes = nor_biomes },
-	{ name = 'norwarrior',     nodes = nor_nodes,                              neighbors = TableConcat(nor_neigh, warrior_near),         biomes = nor_biomes },
+	{ name = 'nordoctor', aoc=2,      nodes = TableConcat(nor_nodes, doctor_nodes),   neighbors = TableConcat(nor_neigh, doctor_neighbors),     biomes = nor_biomes },
+	{ name = 'norfarmer', aoc=20,      nodes = farm_nodes,                             neighbors = TableConcat(nor_neigh, farmer_neighbors),     biomes = nor_biomes },
+	{ name = 'norinstructor', aoc=2,  nodes = nor_nodes,                              neighbors = TableConcat(nor_neigh, instructor_near),      biomes = nor_biomes },
+	{ name = 'norminer', aoc=20,       nodes = nor_nodes,                              neighbors = TableConcat(nor_neigh, miner_near),           biomes = nor_biomes },
+	{ name = 'norsmith', aoc=5,       nodes = nor_nodes,                              neighbors = TableConcat(nor_neigh, forge_near),           biomes = nor_biomes },
+	{ name = 'norvillager', aoc=50,    nodes = TableConcat(nor_nodes, villager_nodes), neighbors = TableConcat3(nor_neigh, beds, villager_near), biomes = nor_biomes },
+	{ name = 'norwarrior', aoc=20,     nodes = nor_nodes,                              neighbors = TableConcat(nor_neigh, warrior_near),         biomes = nor_biomes },
 
-	{ name = 'afrfarmer',      nodes = farm_nodes,                             neighbors = TableConcat(afr_neigh, farmer_neighbors),     biomes = afr_biomes },
-	{ name = 'afrinstructor',  nodes = afr_nodes,                              neighbors = TableConcat(afr_neigh, instructor_near),      biomes = afr_biomes },
-	{ name = 'afrsmith',       nodes = afr_nodes,                              neighbors = TableConcat(afr_neigh, forge_near),           biomes = afr_biomes },
-	{ name = 'afrwarrior',     nodes = afr_nodes,                              neighbors = TableConcat(afr_neigh, warrior_near),         biomes = afr_biomes },
+	{ name = 'afrfarmer', aoc=20,      nodes = farm_nodes,                             neighbors = TableConcat(afr_neigh, farmer_neighbors),     biomes = afr_biomes },
+	{ name = 'afrinstructor', aoc=2,  nodes = afr_nodes,                              neighbors = TableConcat(afr_neigh, instructor_near),      biomes = afr_biomes },
+	{ name = 'afrsmith', aoc=5,       nodes = afr_nodes,                              neighbors = TableConcat(afr_neigh, forge_near),           biomes = afr_biomes },
+	{ name = 'afrwarrior', aoc=20,     nodes = afr_nodes,                              neighbors = TableConcat(afr_neigh, warrior_near),         biomes = afr_biomes },
 
-	{ name = 'aradoctor',      nodes = TableConcat(ara_nodes, doctor_nodes),   neighbors = TableConcat(ara_neigh, doctor_neighbors),     biomes = ara_biomes },
-	{ name = 'araminer',       nodes = ara_nodes,                              neighbors = TableConcat(ara_neigh, miner_near),           biomes = ara_biomes },
-	{ name = 'aravillager',    nodes = TableConcat(ara_nodes, villager_nodes), neighbors = TableConcat3(ara_neigh, beds, villager_near), biomes = ara_biomes },
+	{ name = 'aradoctor', aoc=2,      nodes = TableConcat(ara_nodes, doctor_nodes),   neighbors = TableConcat(ara_neigh, doctor_neighbors),     biomes = ara_biomes },
+	{ name = 'araminer', aoc=20,       nodes = ara_nodes,                              neighbors = TableConcat(ara_neigh, miner_near),           biomes = ara_biomes },
+	{ name = 'aravillager', aoc=50,    nodes = TableConcat(ara_nodes, villager_nodes), neighbors = TableConcat3(ara_neigh, beds, villager_near), biomes = ara_biomes },
 
-	{ name = 'chindoctor',     nodes = TableConcat(chin_nodes, doctor_nodes),  neighbors = TableConcat(chin_neigh, doctor_neighbors),    biomes = chin_biomes },
-	{ name = 'chinfarmer',     nodes = farm_nodes,                             neighbors = TableConcat(chin_neigh, farmer_neighbors),    biomes = chin_biomes },
-	{ name = 'chininstructor', nodes = chin_nodes,                             neighbors = TableConcat(chin_neigh, instructor_near),     biomes = chin_biomes },
-	{ name = 'chinsmith',      nodes = chin_nodes,                             neighbors = TableConcat(chin_neigh, forge_near),          biomes = chin_biomes },
+	{ name = 'chindoctor', aoc=2,     nodes = TableConcat(chin_nodes, doctor_nodes),  neighbors = TableConcat(chin_neigh, doctor_neighbors),    biomes = chin_biomes },
+	{ name = 'chinfarmer', aoc=20,     nodes = farm_nodes,                             neighbors = TableConcat(chin_neigh, farmer_neighbors),    biomes = chin_biomes },
+	{ name = 'chininstructor', aoc=2, nodes = chin_nodes,                             neighbors = TableConcat(chin_neigh, instructor_near),     biomes = chin_biomes },
+	{ name = 'chinsmith', aoc=5,      nodes = chin_nodes,                             neighbors = TableConcat(chin_neigh, forge_near),          biomes = chin_biomes },
 
-	{ name = 'evilminer',      nodes = mine_nodes,                             neighbors = TableConcat(mine_nodes, miner_near),          biomes = all_biomes },
-	{ name = 'hatefulminer',   nodes = mine_nodes,                             neighbors = TableConcat(mine_nodes, miner_near),          biomes = all_biomes },
-	{ name = 'jealousminer',   nodes = mine_nodes,                             neighbors = TableConcat(mine_nodes, miner_near),          biomes = all_biomes },
+	{ name = 'evilminer', aoc=10,      nodes = mine_nodes,                             neighbors = TableConcat(mine_nodes, miner_near),          biomes = all_biomes },
+	{ name = 'hatefulminer', aoc=10,   nodes = mine_nodes,                             neighbors = TableConcat(mine_nodes, miner_near),          biomes = all_biomes },
+	{ name = 'jealousminer', aoc=10,   nodes = mine_nodes,                             neighbors = TableConcat(mine_nodes, miner_near),          biomes = all_biomes },
 
-	{ name = 'eweminer',       nodes = ewe_nodes,                              neighbors = TableConcat(ewe_nodes, miner_near),           biomes = ewe_biomes },
-	{ name = 'ewevillager',    nodes = TableConcat(ewe_nodes, villager_nodes), neighbors = TableConcat3(ewe_neigh, beds, villager_near), biomes = ewe_biomes },
-	{ name = 'ewewarrior',     nodes = ewe_nodes,                              neighbors = TableConcat(ewe_neigh, warrior_near),         biomes = ewe_biomes },
+	{ name = 'eweminer', aoc=20,       nodes = ewe_nodes,                              neighbors = TableConcat(ewe_nodes, miner_near),           biomes = ewe_biomes },
+	{ name = 'ewevillager', aoc=50,    nodes = TableConcat(ewe_nodes, villager_nodes), neighbors = TableConcat3(ewe_neigh, beds, villager_near), biomes = ewe_biomes },
+	{ name = 'ewewarrior', aoc=20,     nodes = ewe_nodes,                              neighbors = TableConcat(ewe_neigh, warrior_near),         biomes = ewe_biomes },
 
-	{ name = 'meddoctor',      nodes = TableConcat(med_nodes, doctor_nodes),   neighbors = TableConcat(med_neigh, doctor_neighbors),     biomes = med_biomes },
-	{ name = 'medfarmer',      nodes = farm_nodes,                             neighbors = TableConcat(med_neigh, farmer_neighbors),     biomes = med_biomes },
+	{ name = 'meddoctor', aoc=2,      nodes = TableConcat(med_nodes, doctor_nodes),   neighbors = TableConcat(med_neigh, doctor_neighbors),     biomes = med_biomes },
+	{ name = 'medfarmer', aoc=20,      nodes = farm_nodes,                             neighbors = TableConcat(med_neigh, farmer_neighbors),     biomes = med_biomes },
 	{ name = 'medinstructor',  nodes = med_nodes,                              neighbors = TableConcat(med_neigh, instructor_near),      biomes = med_biomes },
-	{ name = 'medminer',       nodes = med_nodes,                              neighbors = TableConcat(med_neigh, miner_near),           biomes = med_biomes },
-	{ name = 'medsmith',       nodes = med_nodes,                              neighbors = TableConcat(med_neigh, forge_near),           biomes = med_biomes },
-	{ name = 'medvillager',    nodes = TableConcat(med_nodes, villager_nodes), neighbors = TableConcat3(med_neigh, beds, villager_near), biomes = med_biomes },
-	{ name = 'medwarrior',     nodes = med_nodes,                              neighbors = TableConcat(med_neigh, warrior_near),         biomes = med_biomes },
+	{ name = 'medminer', aoc=20,       nodes = med_nodes,                              neighbors = TableConcat(med_neigh, miner_near),           biomes = med_biomes },
+	{ name = 'medsmith', aoc=5,       nodes = med_nodes,                              neighbors = TableConcat(med_neigh, forge_near),           biomes = med_biomes },
+	{ name = 'medvillager', aoc=50,    nodes = TableConcat(med_nodes, villager_nodes), neighbors = TableConcat3(med_neigh, beds, villager_near), biomes = med_biomes },
+	{ name = 'medwarrior', aoc=20,     nodes = med_nodes,                              neighbors = TableConcat(med_neigh, warrior_near),         biomes = med_biomes },
 
-	{ name = 'papdoctor',      nodes = TableConcat(pap_nodes, doctor_nodes),   neighbors = TableConcat(pap_neigh, doctor_neighbors),     biomes = pap_biomes },
-	{ name = 'papvillager',    nodes = TableConcat(pap_nodes, villager_nodes), neighbors = TableConcat3(pap_neigh, beds, villager_near), biomes = pap_biomes },
+	{ name = 'papdoctor', aoc=2,      nodes = TableConcat(pap_nodes, doctor_nodes),   neighbors = TableConcat(pap_neigh, doctor_neighbors),     biomes = pap_biomes },
+	{ name = 'papvillager', aoc=50,    nodes = TableConcat(pap_nodes, villager_nodes), neighbors = TableConcat3(pap_neigh, beds, villager_near), biomes = pap_biomes },
 
-	{ name = 'samfarmer',      nodes = farm_nodes,                             neighbors = TableConcat(sam_neigh, farmer_neighbors),     biomes = sam_biomes },
-	{ name = 'samsmith',       nodes = sam_nodes,                              neighbors = TableConcat(sam_neigh, forge_near),           biomes = sam_biomes },
-	{ name = 'samwarrior',     nodes = sam_nodes,                              neighbors = TableConcat(sam_neigh, warrior_near),         biomes = sam_biomes },
+	{ name = 'samfarmer', aoc=20,      nodes = farm_nodes,                             neighbors = TableConcat(sam_neigh, farmer_neighbors),     biomes = sam_biomes },
+	{ name = 'samsmith', aoc=5,       nodes = sam_nodes,                              neighbors = TableConcat(sam_neigh, forge_near),           biomes = sam_biomes },
+	{ name = 'samwarrior', aoc=20,     nodes = sam_nodes,                              neighbors = TableConcat(sam_neigh, warrior_near),         biomes = sam_biomes },
 
 	{
-		name = 'pirate',
+		name = 'pirate', 
+		aoc=2,		
 		nodes =
 		{ "mcl_core:cobble", "mcl_core:mossycobble", "mcl_core:sandstonebrick" },
-		neighbors = { "people:bootynode" },
+		neighbors = { "people:bootynode", "air" },
 		biomes = pap_biomes
 	},
 	{
@@ -440,7 +441,7 @@ local all_people = {
 			"Savanna_beach",
 			"Jungle_shore",
 			"JungleM_shore", },
-		neighbors = villager_near,
+		neighbors = TableConcat(villager_near, {"air"}),
 		biomes = pap_biomes
 	},
 }
@@ -460,10 +461,11 @@ do
 		neighbors = villager.neighbors,
 		min_light = 1,
 		interval = 50,
-		chance = 1500,
+		chance = 5000,
 		min_height = min_height,
-		max_height = 2000,
-		daylight_toggle = true
+		max_height = 20000,
+		daylight_toggle = true,
+		active_object_count = villager.aoc
 	})
 
 	--	mcl_mobs.spawn_setup({
