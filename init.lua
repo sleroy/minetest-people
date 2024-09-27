@@ -105,6 +105,7 @@ local beds = { "mcl_beds:bed_red_bottom",
 	"mcl_beds:bed_white_bottom" }
 
 local function TableConcat(t1, t2)
+	
 	for i = 1, #t2 do
 		t1[#t1 + 1] = t2[i]
 	end
@@ -115,9 +116,9 @@ local function TableConcat3(t1, t2, t3)
 end
 
 local farmer_neighbors = { "people:feeder", "mcl_core:cobble", "mcl_farming:soil_wet", "mcl_farming:potato_1",
-	"mcl_farming:potato_2", "mcl_farming:potato_3", "mcl_farming:soil" }
+	"mcl_farming:potato_2", "mcl_farming:potato_3", "mcl_farming:soil", "mcl_farming:wheat", "mcl_farming:carrot", "mcl_composters:composter" }
 
-local farm_nodes = { "mcl_trees:tree_spruce", "mcl_farming:potato", "mcl_core:grass_path", "mcl_core:podzol" }
+local farm_nodes = { "mcl_trees:tree_spruce", "mcl_farming:potato", "mcl_core:grass_path", "mcl_core:podzol", "mcl_core:dirt_with_grass", "mcl_core:soil_wet", "mcl_core:dirt" , "mcl_stairs:stair_oak_bark", "mcl_composters:composter"}
 
 local doctor_neighbors = { "people:firstaidnode", "mcl_cauldrons:cauldron" }
 local warrior_near = { "people:weaponstand", "people:villagerbed", "mcl_books:bookshelf", "mcl_itemframes:item_frame",
@@ -233,10 +234,10 @@ local ara_biomes = {
 local chin_nodes = { "mcl_trees:tree_dark_oak", "mcl_trees:tree_acacia", "mcl_trees:tree_jungle", "mcl_trees:tree_spruce",
 	"mcl_trees:tree_oak", "mcl_trees:tree_oak", "mcl_trees:tree_mangrove", "mcl_trees:tree_crimson",
 	"mcl_trees:tree_warped", "mcl_trees:tree_bamboo", "mcl_trees:tree_cherry_blossom", "mcl_core:stonebrick",
-	"mcl_core:cobble",
+	"mcl_core:cobble","mcl_core:dirt_with_grass",
 	"mcl_trees:wood_birch", "mcl_trees:wood_dark_oak", "mcl_trees:wood_dark_oak", "mcl_trees:wood_acacia" }
 local chin_neigh = { "mcl_trees:tree_dark_oak", "mcl_trees:tree_acacia", "mcl_trees:tree_jungle", "mcl_trees:tree_spruce",
-	"mcl_trees:tree_oak", "mcl_trees:tree_oak", "mcl_trees:tree_mangrove", "mcl_trees:tree_crimson",
+	"mcl_trees:tree_oak", "mcl_trees:tree_oak", "mcl_trees:tree_mangrove", "mcl_trees:tree_crimson","mcl_core:dirt_with_grass",
 	"mcl_trees:tree_warped", "mcl_trees:tree_bamboo", "mcl_trees:tree_cherry_blossom", "mcl_core:stonebrick",
 	"mcl_core:cobble",
 	"mcl_trees:wood_birch", "mcl_trees:wood_dark_oak", "mcl_trees:wood_dark_oak", "mcl_trees:wood_acacia" }
@@ -286,13 +287,9 @@ local ewe_biomes = {
 local med_nodes = { "mcl_trees:tree_dark_oak", "mcl_trees:tree_acacia", "mcl_trees:tree_jungle", "mcl_trees:tree_spruce",
 	"mcl_trees:tree_oak", "mcl_trees:tree_oak", "mcl_trees:tree_mangrove", "mcl_trees:tree_crimson",
 	"mcl_trees:tree_warped", "mcl_trees:tree_bamboo", "mcl_trees:tree_cherry_blossom", "mcl_core:stonebrick",
-	"mcl_core:cobble",
+	"mcl_stairs:slab_oak_top",
 	"mcl_trees:wood_birch", "mcl_trees:wood_dark_oak", "mcl_trees:wood_dark_oak", "mcl_trees:wood_acacia" }
-local med_neigh = { "mcl_trees:tree_dark_oak", "mcl_trees:tree_acacia", "mcl_trees:tree_jungle", "mcl_trees:tree_spruce",
-	"mcl_trees:tree_oak", "mcl_trees:tree_oak", "mcl_trees:tree_mangrove", "mcl_trees:tree_crimson",
-	"mcl_trees:tree_warped", "mcl_trees:tree_bamboo", "mcl_trees:tree_cherry_blossom", "mcl_core:stonebrick",
-	"mcl_core:cobble",
-	"mcl_trees:wood_birch", "mcl_trees:wood_dark_oak", "mcl_trees:wood_dark_oak", "mcl_trees:wood_acacia" }
+local med_neigh = {  }
 local med_biomes = {
 	"flat",
 	"Plains",
@@ -337,8 +334,7 @@ local pap_biomes = {
 
 local sam_nodes = { "mcl_core:dirt_with_grass", "ethereal:green_dirt", "mcl_core:stonebrick", "mcl_core:cobble",
 	"mcl_core:wood" }
-local sam_neigh = { "mcl_core:dirt_with_grass", "ethereal:green_dirt", "mcl_core:stonebrick", "mcl_core:cobble",
-	"mcl_core:wood" }
+local sam_neigh = { }
 local sam_biomes = {
 	"flat",
 	"MegaTaiga",
@@ -364,14 +360,14 @@ local sam_biomes = {
 
 local all_people = {
 	{ name = 'nordoctor',      nodes = TableConcat(nor_nodes, doctor_nodes),  neighbors = TableConcat(nor_neigh, doctor_neighbors),     biomes = nor_biomes },
-	{ name = 'norfarmer',      nodes = TableConcat(nor_nodes, farm_nodes),    neighbors = TableConcat(nor_neigh, farmer_neighbors),     biomes = nor_biomes },
+	{ name = 'norfarmer',      nodes = farm_nodes,    neighbors = TableConcat(nor_neigh, farmer_neighbors),     biomes = nor_biomes },
 	{ name = 'norinstructor',  nodes = nor_nodes,                             neighbors = TableConcat(nor_neigh, instructor_near),      biomes = nor_biomes },
 	{ name = 'norminer',       nodes = nor_nodes,                             neighbors = TableConcat(nor_neigh, miner_near),           biomes = nor_biomes },
 	{ name = 'norsmith',       nodes = nor_nodes,                             neighbors = TableConcat(nor_neigh, forge_near),           biomes = nor_biomes },
 	{ name = 'norvillager',    nodes = nor_nodes,                             neighbors = TableConcat3(nor_neigh, beds, villager_near), biomes = nor_biomes },
 	{ name = 'norwarrior',     nodes = nor_nodes,                             neighbors = TableConcat(nor_neigh, warrior_near),         biomes = nor_biomes },
 
-	{ name = 'afrfarmer',      nodes = TableConcat(afr_nodes, farm_nodes),    neighbors = TableConcat(afr_neigh, farmer_neighbors),     biomes = afr_biomes },
+	{ name = 'afrfarmer',      nodes = farm_nodes,    neighbors = TableConcat(afr_neigh, farmer_neighbors),     biomes = afr_biomes },
 	{ name = 'afrinstructor',  nodes = afr_nodes,                             neighbors = TableConcat(afr_neigh, instructor_near),      biomes = afr_biomes },
 	{ name = 'afrsmith',       nodes = afr_nodes,                             neighbors = TableConcat(afr_neigh, forge_near),           biomes = afr_biomes },
 	{ name = 'afrwarrior',     nodes = afr_nodes,                             neighbors = TableConcat(afr_neigh, warrior_near),         biomes = afr_biomes },
@@ -381,7 +377,7 @@ local all_people = {
 	{ name = 'aravillager',    nodes = ara_nodes,                             neighbors = TableConcat3(ara_neigh, beds, villager_near), biomes = ara_biomes },
 
 	{ name = 'chindoctor',     nodes = TableConcat(chin_nodes, doctor_nodes), neighbors = TableConcat(chin_neigh, doctor_neighbors),    biomes = chin_biomes },
-	{ name = 'chinfarmer',     nodes = TableConcat(chin_nodes, farm_nodes),   neighbors = TableConcat(chin_neigh, farmer_neighbors),    biomes = chin_biomes },
+	{ name = 'chinfarmer',     nodes = farm_nodes,   neighbors = TableConcat(chin_neigh, farmer_neighbors),    biomes = chin_biomes },
 	{ name = 'chininstructor', nodes = chin_nodes,                            neighbors = TableConcat(chin_neigh, instructor_near),     biomes = chin_biomes },
 	{ name = 'chinsmith',      nodes = chin_nodes,                            neighbors = TableConcat(chin_neigh, forge_near),          biomes = chin_biomes },
 
@@ -394,7 +390,7 @@ local all_people = {
 	{ name = 'ewewarrior',     nodes = ewe_nodes,                             neighbors = TableConcat(ewe_neigh, warrior_near),         biomes = ewe_biomes },
 
 	{ name = 'meddoctor',      nodes = TableConcat(med_nodes, doctor_nodes),  neighbors = TableConcat(med_neigh, doctor_neighbors),     biomes = med_biomes },
-	{ name = 'medfarmer',      nodes = TableConcat(med_nodes, farm_nodes),    neighbors = TableConcat(med_neigh, farmer_neighbors),     biomes = med_biomes },
+	{ name = 'medfarmer',      nodes = farm_nodes,    neighbors = TableConcat(med_neigh, farmer_neighbors),     biomes = med_biomes },
 	{ name = 'medinstructor',  nodes = med_nodes,                             neighbors = TableConcat(med_neigh, instructor_near),      biomes = med_biomes },
 	{ name = 'medminer',       nodes = med_nodes,                             neighbors = TableConcat(med_neigh, miner_near),           biomes = med_biomes },
 	{ name = 'medsmith',       nodes = med_nodes,                             neighbors = TableConcat(med_neigh, forge_near),           biomes = med_biomes },
@@ -404,7 +400,7 @@ local all_people = {
 	{ name = 'papdoctor',      nodes = TableConcat(pap_nodes, doctor_nodes),  neighbors = TableConcat(pap_neigh, doctor_neighbors),     biomes = pap_biomes },
 	{ name = 'papvillager',    nodes = pap_nodes,                             neighbors = TableConcat3(pap_neigh, beds, villager_near), biomes = pap_biomes },
 
-	{ name = 'samfarmer',      nodes = TableConcat(sam_nodes, farm_nodes),    neighbors = TableConcat(sam_neigh, farmer_neighbors),     biomes = sam_biomes },
+	{ name = 'samfarmer',      nodes =  farm_nodes,    neighbors = TableConcat(sam_neigh, farmer_neighbors),     biomes = sam_biomes },
 	{ name = 'samsmith',       nodes = sam_nodes,                             neighbors = TableConcat(sam_neigh, forge_near),           biomes = sam_biomes },
 	{ name = 'samwarrior',     nodes = sam_nodes,                             neighbors = TableConcat(sam_neigh, warrior_near),         biomes = sam_biomes },
 
@@ -437,7 +433,7 @@ local all_people = {
 
 for key, villager in ipairs(all_people)
 do
-	local min_height = 150
+	local min_height = -150
 	---- if not mobs.custom_spawn_people then
 	---
 	
@@ -446,20 +442,21 @@ do
 		nodes = villager.nodes,
 		neighbors = villager.neighbors,
 		min_light = 1,
-		interval = 30,
-		chance = 8000,
+		interval = 50,
+		chance = 1500,
 		min_height = min_height,
-		max_height = 2000
+		max_height = 2000,
+		daylight_toggle= true
 	})
-
-	mcl_mobs.spawn_setup({
-		name = "people:" .. villager.name,
-		type_of_spawning = "ground",
-		dimension = "overworld",
-		min_height = min_height,
-		biomes = villager.biomes,
-		chance = 8000,
-	})
+--
+--	mcl_mobs.spawn_setup({
+--		name = "people:" .. villager.name,
+--		type_of_spawning = "ground",
+--		dimension = "overworld",
+--		min_height = min_height,
+--		biomes = villager.biomes,
+--		chance = 500,
+--	})
 end
 
 -- Spawn all zombies with the same rule
