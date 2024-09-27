@@ -141,4 +141,3 @@ mobs:register_egg("people:abominer", S("Miner Jungle"), "aabominer.png")
 
 -- compatibility
 mobs:alias_mob("people:abominer", "people:abominer")
-

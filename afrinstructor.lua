@@ -8,7 +8,7 @@ mobs.afrinstructor_drops = {
 mobs:register_mob("people:afrinstructor", {
 	type = "npc",
 	passive = true,
-	damage = 5,
+	damage = 10,
 	attack_type = "dogfight",
 	owner_loyal = true,
 	pathfinding = true,
@@ -76,6 +76,11 @@ mobs:register_mob("people:afrinstructor", {
 		die_loop = false,
 		die_rotate = true,
 	},
+	-- Spawn warriors
+	on_die = function(self, pos, cmi_cause)
+		-- Drop a random music disc when killed by skeleton or stray
+		mcl_util.replace_mob(self.object, "people:afrwarrior")
+	end,
 	-- right clicking with raw meat will give Igor more health
 	on_rightclick = function(self, clicker)
 		-- feed to heal npc

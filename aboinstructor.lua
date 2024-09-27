@@ -8,7 +8,7 @@ mobs.aboinstructor_drops = {
 mobs:register_mob("people:aboinstructor", {
 	type = "npc",
 	passive = true,
-	damage = 5,
+	damage = 10,
 	attack_type = "dogfight",
 	owner_loyal = true,
 	pathfinding = true,
@@ -26,6 +26,11 @@ mobs:register_mob("people:aboinstructor", {
 		{ "textureaboinstructor.png" },
 
 	},
+	-- Spawn warriors
+	on_die = function(self, pos, cmi_cause)
+		-- Drop a random music disc when killed by skeleton or stray
+		mcl_util.replace_mob(self.object, "people:abowarrior")
+	end,
 	makes_footstep_sound = true,
 	sounds = {
 		random = "people_instructor",

@@ -33,6 +33,7 @@ mobs:register_mob("people:zombiedoctor", {
     walk_chance = 10,
     runaway = false,
     jump = true,
+    jump_height = 4,
     stay_near = { { "people:firstaidnode" }, 4 },
     drops = { "mcl_torches:torch", "mcl_armor:helmet_chain", "mcl_farming:carrot_item_gold", "people:firsaidkit",
         "mcl_potions:glass_bottle", "mcl_potions:water_breathing", "mcl_potions:fire_resistance",
@@ -91,7 +92,7 @@ mobs:spawn({
     min_light = 0,
     interval = 30,
     active_object_count = 2,
-    chance = 10,     -- 15000
+    chance = 10, -- 15000
     min_height = -25,
     max_height = 1000,
     day_toggle = false

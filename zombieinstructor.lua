@@ -32,6 +32,7 @@ mobs:register_mob("people:zombieinstructor", {
 	walk_chance = 10,
 	runaway = false,
 	jump = true,
+	jump_height = 4,
 	stay_near = { { "people:weaponstand" }, 4 },
 	drops = {
 	},
