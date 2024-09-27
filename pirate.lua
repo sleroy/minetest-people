@@ -88,18 +88,4 @@ do_punch = function(self, hitter,
 	end,
 })
 
--- if not mobs.custom_spawn_people then
-mobs:spawn({
-	name = "people:pirate",
-	nodes = {"mcl_core:cobble", "mcl_core:mossycobble", "mcl_core:sandstonebrick"},
-	neighbors = {"people:bootynode"},
-	min_light = 0,
-	interval = 30,
-	active_object_count = 5,
-	chance = 10, -- 15000
-	min_height = -25,
-	max_height = 1000,
-})
-
-
 mobs:register_egg("people:pirate", S("Pirate Plunderer"), "apirate.png")

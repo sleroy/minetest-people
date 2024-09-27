@@ -67,18 +67,6 @@ mobs:register_mob("people:ewevillager", {
 })
 
 
--- if not mobs.custom_spawn_people then
-	mobs:spawn({
-		name = "people:ewevillager",
-		nodes = { "mcl_trees:wood_dark_oak" },
-		neighbors = { "people:villagerbed" },
-		min_light = 0,
-		interval = 30,
-		chance = 15000,
-		min_height = -25,
-		max_height = 1000,
-	})
---end
 
 mobs:register_egg("people:ewevillager", S("Villager Aspen"), "aewevillager.png")
 

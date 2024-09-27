@@ -114,7 +114,7 @@ mobs:register_mob("people:samwarrior", {
 		-- Prevent friendly fire from killing each other :)
 		local entity = hitter:get_luaentity()
 
-		if entity == "people:samwarrior" then
+		if entity == "people:ewewarrior" or entity.type == "npc" then
 			return false
 		end
 

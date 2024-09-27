@@ -146,36 +146,7 @@ mobs:register_mob("people:chinfarmer", {
 	end
 })
 
--- if not mobs.custom_spawn_people then
-mobs:spawn({
-	name = "people:chinfarmer",
-	nodes = { "mcl_trees:wood_acacia", "mcl_farming:pumpkin", "mobs:meatblock", "mcl_core:cobble", "mcl_core:pine_wood",
-		"mcl_core:dirt_with_grass", "ethereal:green_dirt", "mcl_core:stonebrick", "mcl_core:cobble",
-		"mcl_core:wood", "mcl_farming:soil_wet" },
-	neighbors = { "group:grass", "people:feeder", "mcl_core:stonebrick", "mcl_core:brick" },
-	min_light = 1,
-	interval = 60,
-	chance = 8000,
-	min_height = -15,
-	max_height = 200,
-	day_toggle = true
-})
 
-mcl_mobs.spawn_setup({
-	name = "people:chinfarmer",
-	type_of_spawning = "ground",
-	dimension = "overworld",
-	aoc = 9,
-	min_height = -25,
-	biomes = { "flat", "IcePlainsSpikes", "ColdTaiga", "ColdTaiga_beach", "ColdTaiga_beach_water", "MegaTaiga",
-		"MegaSpruceTaiga", "ExtremeHills", "ExtremeHills_beach", "ExtremeHillsM", "ExtremeHills+", "Plains",
-		"Plains_beach", "SunflowerPlains", "Taiga", "Taiga_beach", "Forest", "Forest_beach", "FlowerForest",
-		"FlowerForest_beach", "BirchForest", "BirchForestM", "RoofedForest", "Savanna", "Savanna_beach",
-		"SavannaM", "Jungle", "Jungle_shore", "JungleM", "JungleM_shore", "JungleEdge", "JungleEdgeM",
-		"BambooJungle", "Swampland", "Swampland_shore" },
-	chance = 100
-})
--- end
 -- register spawn egg
 mobs:register_egg("people:chinfarmer", S("Farmer Aspen"), "achinfarmer.png")
 

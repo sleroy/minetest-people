@@ -66,16 +66,16 @@ mobs:register_mob("people:evilminer", {
 })
 
 -- if not mobs.custom_spawn_people then
-	mobs:spawn({
-		name = "people:evilminer",
-		nodes = { "mcl_core:stone" },
-		neighbors = { "mcl_core:stone_with_diamond", "mcl_core:stone_with_coal" },
-		min_light = 0,
-		interval = 60,
-		chance = 2, -- 15000
-		min_height = -1000,
-		max_height = -400,
-	})
+mobs:spawn({
+	name = "people:evilminer",
+	nodes = { "mcl_core:stone" },
+	neighbors = { "mcl_core:stone_with_diamond", "mcl_core:stone_with_coal" },
+	min_light = 0,
+	interval = 60,
+	chance = 2, -- 15000
+	min_height = -1000,
+	max_height = -400,
+})
 --end
 
 mobs:register_egg("people:evilminer", S("Evil Miner"), "aevilminer.png")

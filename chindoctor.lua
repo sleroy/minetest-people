@@ -120,28 +120,6 @@ mobs:register_mob("people:chindoctor", {
 	end,
 })
 
--- -- if not mobs.custom_spawn_people then
-mobs:spawn({
-	name = "people:chindoctor",
-	nodes = { "mcl_wool:white_carpet", "mcl_core:stonebrick", "mcl_core:cobble", "mcl_wool:brown_carpet",
-		"mcl_wool:silver_carpet", "mcl_wool:silver_carpet",
-		"mcl_wool:grey_carpet", "mcl_wool:blue_carpet", "mcl_wool:green_carpet",
-		"mcl_wool:green_carpetmcl_wool:lime_carpet", "mcl_wool:purple_carpet", "mcl_wool:pink_carpet",
-		"mcl_wool:yellow_carpet", "mcl_wool:orange_carpet", "mcl_wool:red_carpet", "mcl_wool:cyan_carpet",
-		"mcl_wool:magenta_carpet", "mcl_wool:black_carpet", "mcl_wool:light_blue_carpet", "mcl_trees:tree_birch",
-		"mcl_trees:tree_dark_oak", "mcl_trees:tree_acacia", "mcl_trees:tree_jungle", "mcl_trees:tree_spruce",
-		"mcl_trees:tree_oak", "mcl_trees:tree_oak", "mcl_trees:tree_mangrove", "mcl_trees:tree_crimson",
-		"mcl_trees:tree_warped", "mcl_trees:tree_bamboo", "mcl_trees:tree_cherry_blossom", "mcl_core:stonebrick",
-		"mcl_core:cobble",
-		"mcl_trees:wood_birch", "mcl_trees:wood_dark_oak", "mcl_trees:wood_dark_oak", "mcl_trees:wood_acacia" },
-	neighbors = { "people:firstaidnode", "mcl_cauldrons:cauldron" },
-	min_light = 0,
-	interval = 30,
-	chance = 15000,
-	min_height = -25,
-	max_height = 1000
-})
--- end
 -- register spawn egg
 mobs:register_egg("people:chindoctor", S("Doctor Aspen"), "achindoctor.png")
 
